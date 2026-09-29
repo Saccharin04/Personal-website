@@ -43,7 +43,7 @@ function App() {
         <div className="nav-links">
           <a href="#profile">Profile</a>
           <a href="#music">Music</a>
-          <a href="#lyrics">Lyrics</a>
+          <a href="#lyrics">Lyric Albums</a>
         </div>
       </nav>
 
@@ -81,7 +81,7 @@ function App() {
       </section>
 
       <section id="lyrics" className="content lyrics-list-section">
-        <h2>Lyrics</h2>
+        <h2>Lyric Albums</h2>
         <div className="track-list">
           {albums.map((album) => {
             const Card = album.href ? "a" : "article"
@@ -115,7 +115,7 @@ function ProfilePage() {
         <div className="nav-links">
           <a href={`${siteBase}#profile`}>Profile</a>
           <a href={`${siteBase}#music`}>Music</a>
-          <a href={`${siteBase}#lyrics`}>Lyrics</a>
+          <a href={`${siteBase}#lyrics`}>Lyric Albums</a>
         </div>
       </nav>
 
@@ -199,7 +199,7 @@ function ChannelAlbumPage() {
         <div className="nav-links">
           <a href={`${siteBase}#profile`}>Profile</a>
           <a href={`${siteBase}#music`}>Music</a>
-          <a href={`${siteBase}#lyrics`}>Lyrics</a>
+          <a href={`${siteBase}#lyrics`}>Lyric Albums</a>
         </div>
       </nav>
 

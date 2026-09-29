@@ -96,7 +96,7 @@ main { min-height: 100vh; display: flex; flex-direction: column; }
 .track-info h3 { margin: 0 0 8px; font-weight: 700; font-size: clamp(23px, 3vw, 31px); letter-spacing: -.04em; }
 .track-info p { margin: 0; color: #5b5b5b; font-size: 15px; }
 .track-card:hover .track-info p, .track-card:hover .album-english, .track-card:hover .album-mark { color: #c8c8c8; }
-.album-slash { color: #777; font-weight: 400; }
+.album-slash { margin-left: .24em; color: #777; font-weight: 400; white-space: nowrap; }
 .album-english { color: #5b5b5b; font-size: .83em; font-weight: 400; letter-spacing: -.015em; }
 .album-mark { color: #222; font-size: 19px; transition: transform .2s ease; }
 .track-card:hover .album-mark { transform: translate(3px, -3px); }
@@ -162,8 +162,8 @@ main { min-height: 100vh; display: flex; flex-direction: column; }
   .profile-page { padding-top: 140px; }
   .profile-page h1 { margin-bottom: 28px; }
   .track-card { gap: 16px; min-height: 104px; padding: 22px 18px; }
-  .album-english { display: block; margin-top: 3px; font-size: 16px; }
-  .album-slash { display: none; }
+  .track-info h3 { font-size: 20px; }
+  .album-english { display: inline; margin-top: 0; font-size: 13px; white-space: nowrap; }
   .site-footer { padding: 48px 20px 42px; }
   .album-hero { width: min(100% - 40px, 1120px); padding: 150px 0 70px; }
   .lyric-buttons { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
