@@ -63,21 +63,27 @@ main { min-height: 100vh; display: flex; flex-direction: column; }
   padding: clamp(96px, 12vw, 158px) 0;
   border-top: 1px solid var(--line);
 }
-.about-section { border-top: 0; padding-top: 90px; }
+.profile-summary-section { border-top: 0; padding-top: 90px; }
 .section-number { color: #666; font-size: 11px; font-weight: 700; letter-spacing: .23em; margin-bottom: 18px; }
 .content h2 { font-size: clamp(48px, 8vw, 92px); letter-spacing: -.065em; line-height: .95; margin: 0 0 30px; font-weight: 800; }
 .section-intro { max-width: 750px; color: #494949; font-size: clamp(17px, 2vw, 21px); line-height: 1.7; margin: 0; }
-.about-intro { max-width: 1000px; line-height: 1.9; }
-.about-layout { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(280px, .8fr); gap: clamp(32px, 6vw, 80px); align-items: start; }
-.about-figure { margin: 0; }
-.about-figure img { display: block; width: 100%; height: auto; object-fit: cover; }
-.about-figure figcaption { margin-top: 14px; color: #555; font-size: 14px; line-height: 1.6; }
-.about-figure figcaption a { color: inherit; text-underline-offset: 3px; }
-.about-intro [lang="zh-CN"] {
-  font-family: "Soukou Mincho", "Songti SC", "Noto Serif CJK SC", serif;
-  font-weight: 700;
-  filter: url(#roughen-threshold);
-}
+.profile-summary-layout { display: grid; grid-template-columns: minmax(0, 1fr) 190px; gap: clamp(28px, 5vw, 64px); align-items: start; }
+.profile-summary-copy { color: #494949; font-size: clamp(16px, 1.55vw, 19px); line-height: 1.9; }
+.profile-summary-copy p { margin: 0 0 9px; }
+.profile-summary-image { display: block; width: 190px; height: 190px; object-fit: cover; }
+.profile-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 22px; }
+.profile-actions .social-links { gap: 8px; }
+.profile-actions .social-links a { width: 38px; height: 38px; }
+.profile-actions .social-links svg { width: 16px; height: 16px; }
+.profile-read-more { display: inline-flex; align-items: center; gap: 12px; padding: 10px 15px; border: 1px solid var(--ink); color: var(--ink); font-size: 13px; text-decoration: none; transition: color .2s ease, background .2s ease; }
+.profile-read-more:hover { color: #fff; background: var(--ink); }
+.profile-page { padding-top: clamp(170px, 22vh, 230px); flex: 1; }
+.profile-page-kicker { margin: 0 0 16px; color: #666; font-size: 11px; font-weight: 700; letter-spacing: .23em; }
+.profile-page h1 { margin: 0 0 38px; font-size: clamp(54px, 8vw, 94px); line-height: .95; letter-spacing: -.065em; }
+.profile-page-layout { display: grid; grid-template-columns: minmax(0, 1fr) 240px; gap: clamp(32px, 7vw, 90px); align-items: start; }
+.profile-page-layout > img { display: block; width: 100%; height: auto; object-fit: cover; }
+.profile-page-copy { color: #494949; font-size: clamp(17px, 2vw, 21px); line-height: 1.9; }
+.profile-page-copy p { margin: 0 0 18px; }
 
 .track-list { display: grid; gap: 14px; margin-top: 30px; }
 .lyrics-list-section { padding-top: clamp(72px, 9vw, 110px); }
@@ -150,11 +156,17 @@ main { min-height: 100vh; display: flex; flex-direction: column; }
   .featured-video { width: 100%; }
   .hero h1 { font-size: clamp(62px, 17vw, 112px); }
   .content { width: min(100% - 40px, 1120px); padding: 86px 0; }
-  .about-section { padding-top: 62px; }
-  .about-line-break { display: none; }
-  .about-intro { line-height: 1.85; }
-  .about-layout { grid-template-columns: 1fr; gap: 30px; }
-  .about-figure { width: 100%; max-width: 480px; }
+  .profile-summary-section { padding-top: 62px; }
+  .profile-summary-layout { grid-template-columns: minmax(0, 1fr) 96px; gap: 18px; }
+  .profile-summary-image { width: 96px; height: 96px; }
+  .profile-summary-copy { font-size: 15px; line-height: 1.8; }
+  .profile-actions { gap: 12px; }
+  .profile-actions .social-links { gap: 6px; }
+  .profile-actions .social-links a { width: 34px; height: 34px; }
+  .profile-page { padding-top: 140px; }
+  .profile-page-layout { grid-template-columns: 1fr; gap: 26px; }
+  .profile-page-layout > img { width: min(100%, 240px); }
+  .profile-page h1 { margin-bottom: 28px; }
   .track-card { gap: 16px; min-height: 104px; padding: 22px 18px; }
   .album-english { display: block; margin-top: 3px; font-size: 16px; }
   .album-slash { display: none; }

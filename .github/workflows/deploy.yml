@@ -29,8 +29,8 @@ jobs:
         run: npm ci
       - name: Build site
         run: npm run build
-      - name: Add direct route for the album page
-        run: mkdir -p dist/channel-4am && cp dist/index.html dist/channel-4am/index.html
+      - name: Add direct routes for album and profile pages
+        run: mkdir -p dist/channel-4am dist/profile && cp dist/index.html dist/channel-4am/index.html && cp dist/index.html dist/profile/index.html
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:

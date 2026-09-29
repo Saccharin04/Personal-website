@@ -3,6 +3,7 @@ import aboutImage from "./assets/profile.jpg"
 
 const siteBase = import.meta.env.BASE_URL
 const channelPath = `${siteBase}channel-4am/`
+const profilePath = `${siteBase}profile/`
 
 const albums = [
   { number: "01", title: "逃离夜晚", englishTitle: "Endless Night", years: "2020–2023年" },
@@ -17,8 +18,12 @@ const lyrics = [
 ]
 
 function App() {
-  if (window.location.pathname.replace(/\/$/, "") === `${siteBase.replace(/\/$/, "")}/channel-4am`) {
+  const route = window.location.pathname.replace(/\/$/, "")
+  if (route === `${siteBase.replace(/\/$/, "")}/channel-4am`) {
     return <ChannelAlbumPage />
+  }
+  if (route === `${siteBase.replace(/\/$/, "")}/profile`) {
+    return <ProfilePage />
   }
 
   return (
@@ -35,7 +40,7 @@ function App() {
       <nav className="navbar" aria-label="Main navigation">
         <a href="#top" className="logo">Saccharin</a>
         <div className="nav-links">
-          <a href="#about">About</a>
+          <a href="#profile">Profile</a>
           <a href="#music">Music</a>
           <a href="#lyrics">Lyrics</a>
         </div>
@@ -53,23 +58,22 @@ function App() {
           />
         </div>
         <p className="description">Medicine · Composing · Lyrics · Philosophy</p>
-        <a href="#about" className="explore-button">Explore ↓</a>
+        <a href="#profile" className="explore-button">Explore ↓</a>
       </section>
 
-      <section id="about" className="content about-section">
-        <h2>About</h2>
-        <div className="about-layout">
-          <p className="section-intro about-intro">
-            Saccharin<span lang="zh-CN">是一个跨越医学、生命科学、音乐与哲学等领域的个人研究与创作项目。</span><br className="about-line-break" />
-            <span lang="zh-CN">其学术兴趣主要涉及医学、神经科学、神经技术、生物医学与计算技术，</span><br className="about-line-break" />
-            <span lang="zh-CN">关注神经系统的结构与功能，以及实验科学、计算方法与神经技术在理解生物系统和认知过程中的应用。</span><br className="about-line-break" />
-            <span lang="zh-CN">在科研与学习之外，</span>Saccharin<span lang="zh-CN"> 亦从事音乐创作、歌词写作与文字创作，相关作品涉及音乐、哲学、记忆、情感、个体经验及意义等主题。</span><br className="about-line-break" />
-            <span lang="zh-CN">该项目是一个持续整理研究、创作、知识与思想的个人空间。</span>
-          </p>
-          <figure className="about-figure">
-            <img src={aboutImage} alt="Saccharin 的头像" />
-            <figcaption><span lang="zh-CN">联系方式</span> Contact：<a href="mailto:Saccharin04@outlook.com">Saccharin04@outlook.com</a></figcaption>
-          </figure>
+      <section id="profile" className="content profile-summary-section">
+        <h2>Profile</h2>
+        <div className="profile-summary-layout">
+          <div className="profile-summary-copy">
+            <p>Saccharin，自2023年开始活动至今。活动范围主要包括作曲、作词，以及其他领域。</p>
+            <p>作为医学生，目前就读于复旦大学上海医学院；本职之内从事神经与免疫方向的科研。</p>
+            <p>对哲学、历史和音乐有相当程度的爱好，因而对此进行阐述与创作。</p>
+            <div className="profile-actions">
+              <SocialLinks compact />
+              <a className="profile-read-more" href={profilePath}>Read more <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+          <img className="profile-summary-image" src={aboutImage} alt="Saccharin 的头像" />
         </div>
       </section>
 
@@ -106,34 +110,62 @@ function App() {
       </section>
 
       <footer className="site-footer">
-        <div className="social-links" aria-label="Social media">
-          <a href="https://x.com/Saccharin04_" target="_blank" rel="noreferrer" aria-label="X — Saccharin04_">
-            <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
-              <path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3L12 14.6 5.5 22H2.3l7.3-8.4L1.8 2h6.5l4.5 6.8L18.9 2Zm-1.1 18h1.7L7.3 3.9H5.5L17.8 20Z" />
-            </svg>
-          </a>
-          <a href="https://www.youtube.com/@Saccharin04" target="_blank" rel="noreferrer" aria-label="YouTube — Saccharin04">
-            <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
-              <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z" />
-            </svg>
-          </a>
-          <a href="https://www.instagram.com/saccharin04/" target="_blank" rel="noreferrer" aria-label="Instagram — Saccharin04">
-            <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
-              <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" strokeWidth="2" />
-              <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" strokeWidth="2" />
-              <circle cx="17.5" cy="6.8" r="1.2" />
-            </svg>
-          </a>
-          <a href="https://space.bilibili.com/36468456?spm_id_from=333.1007.0.0" target="_blank" rel="noreferrer" aria-label="Bilibili — Saccharin">
-            <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
-              <path d="m8 4 2 2m6-2-2 2M5 8h14v11H5z" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M9 12v3m6-3v3" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-            </svg>
-          </a>
-        </div>
+        <SocialLinks />
         <p>© Saccharin</p>
       </footer>
     </main>
+  )
+}
+
+function ProfilePage() {
+  return (
+    <main>
+      <nav className="navbar" aria-label="Main navigation">
+        <a href={siteBase} className="logo">Saccharin</a>
+        <div className="nav-links">
+          <a href={`${siteBase}#profile`}>Profile</a>
+          <a href={`${siteBase}#music`}>Music</a>
+          <a href={`${siteBase}#lyrics`}>Lyrics</a>
+        </div>
+      </nav>
+
+      <section className="profile-page content">
+        <p className="profile-page-kicker">PROFILE</p>
+        <h1>Profile</h1>
+        <div className="profile-page-layout">
+          <div className="profile-page-copy">
+            <p>Saccharin，自2023年开始活动至今。活动范围主要包括作曲、作词，以及其他领域。</p>
+            <p>作为医学生，目前就读于复旦大学上海医学院；本职之内从事神经与免疫方向的科研。</p>
+            <p>对哲学、历史和音乐有相当程度的爱好，因而对此进行阐述与创作。</p>
+          </div>
+          <img src={aboutImage} alt="Saccharin 的头像" />
+        </div>
+      </section>
+
+      <footer className="site-footer">
+        <SocialLinks />
+        <p>© Saccharin</p>
+      </footer>
+    </main>
+  )
+}
+
+function SocialLinks({ compact = false }) {
+  return (
+    <div className={`social-links${compact ? " social-links-compact" : ""}`} aria-label="Social media">
+      <a href="https://x.com/Saccharin04_" target="_blank" rel="noreferrer" aria-label="X — Saccharin04_">
+        <svg viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3L12 14.6 5.5 22H2.3l7.3-8.4L1.8 2h6.5l4.5 6.8L18.9 2Zm-1.1 18h1.7L7.3 3.9H5.5L17.8 20Z" /></svg>
+      </a>
+      <a href="https://www.youtube.com/@Saccharin04" target="_blank" rel="noreferrer" aria-label="YouTube — Saccharin04">
+        <svg viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z" /></svg>
+      </a>
+      <a href="https://www.instagram.com/saccharin04/" target="_blank" rel="noreferrer" aria-label="Instagram — Saccharin04">
+        <svg viewBox="0 0 24 24" role="img" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" strokeWidth="2" /><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" strokeWidth="2" /><circle cx="17.5" cy="6.8" r="1.2" /></svg>
+      </a>
+      <a href="https://space.bilibili.com/36468456?spm_id_from=333.1007.0.0" target="_blank" rel="noreferrer" aria-label="Bilibili — Saccharin">
+        <svg viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="m8 4 2 2m6-2-2 2M5 8h14v11H5z" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /><path d="M9 12v3m6-3v3" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" /></svg>
+      </a>
+    </div>
   )
 }
 
@@ -143,7 +175,7 @@ function ChannelAlbumPage() {
       <nav className="navbar" aria-label="Main navigation">
         <a href={`${siteBase}#top`} className="logo">Saccharin</a>
         <div className="nav-links">
-          <a href={`${siteBase}#about`}>About</a>
+          <a href={`${siteBase}#profile`}>Profile</a>
           <a href={`${siteBase}#music`}>Music</a>
           <a href={`${siteBase}#lyrics`}>Lyrics</a>
         </div>
@@ -189,27 +221,7 @@ function ChannelAlbumPage() {
       </section>
 
       <footer className="site-footer">
-        <div className="social-links" aria-label="Social media">
-          <a href="https://x.com/Saccharin04_" target="_blank" rel="noreferrer" aria-label="X — Saccharin04_">
-            <svg viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3L12 14.6 5.5 22H2.3l7.3-8.4L1.8 2h6.5l4.5 6.8L18.9 2Zm-1.1 18h1.7L7.3 3.9H5.5L17.8 20Z" /></svg>
-          </a>
-          <a href="https://www.youtube.com/@Saccharin04" target="_blank" rel="noreferrer" aria-label="YouTube — Saccharin04">
-            <svg viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z" /></svg>
-          </a>
-          <a href="https://www.instagram.com/saccharin04/" target="_blank" rel="noreferrer" aria-label="Instagram — Saccharin04">
-            <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
-              <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" strokeWidth="2" />
-              <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" strokeWidth="2" />
-              <circle cx="17.5" cy="6.8" r="1.2" />
-            </svg>
-          </a>
-          <a href="https://space.bilibili.com/36468456?spm_id_from=333.1007.0.0" target="_blank" rel="noreferrer" aria-label="Bilibili — Saccharin">
-            <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
-              <path d="m8 4 2 2m6-2-2 2M5 8h14v11H5z" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M9 12v3m6-3v3" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-            </svg>
-          </a>
-        </div>
+        <SocialLinks />
         <p>© Saccharin</p>
       </footer>
     </main>
