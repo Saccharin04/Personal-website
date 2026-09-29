@@ -49,6 +49,7 @@ function App() {
 
       <section id="top" className="hero">
         <p className="subtitle">LATEST WORK / 最新作品</p>
+        <h1 className="feature-title">閉鎖 <span>/</span> <span className="feature-title-english">The Cross</span></h1>
         <div className="featured-video">
           <iframe
             src="https://player.bilibili.com/player.html?bvid=BV1eRNf6MEt1&page=1&high_quality=1&danmaku=0&autoplay=0"
@@ -58,7 +59,6 @@ function App() {
             loading="lazy"
           />
         </div>
-        <p className="description">Medicine · Composing · Lyrics · Philosophy</p>
         <a href="#profile" className="explore-button">Explore ↓</a>
       </section>
 
