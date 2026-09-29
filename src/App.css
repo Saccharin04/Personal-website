@@ -67,23 +67,14 @@ main { min-height: 100vh; display: flex; flex-direction: column; }
 .section-number { color: #666; font-size: 11px; font-weight: 700; letter-spacing: .23em; margin-bottom: 18px; }
 .content h2 { font-size: clamp(48px, 8vw, 92px); letter-spacing: -.065em; line-height: .95; margin: 0 0 30px; font-weight: 800; }
 .section-intro { max-width: 750px; color: #494949; font-size: clamp(17px, 2vw, 21px); line-height: 1.7; margin: 0; }
-.profile-summary-layout { display: grid; grid-template-columns: minmax(0, 1fr) 190px; gap: clamp(28px, 5vw, 64px); align-items: start; }
-.profile-summary-copy { color: #494949; font-size: clamp(16px, 1.55vw, 19px); line-height: 1.9; }
-.profile-summary-copy p { margin: 0 0 9px; }
-.profile-summary-image { display: block; width: 190px; height: 190px; object-fit: cover; }
-.profile-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 22px; }
-.profile-actions .social-links { gap: 8px; }
-.profile-actions .social-links a { width: 38px; height: 38px; }
-.profile-actions .social-links svg { width: 16px; height: 16px; }
-.profile-read-more { display: inline-flex; align-items: center; gap: 12px; padding: 10px 15px; border: 1px solid var(--ink); color: var(--ink); font-size: 13px; text-decoration: none; transition: color .2s ease, background .2s ease; }
-.profile-read-more:hover { color: #fff; background: var(--ink); }
-.profile-page { padding-top: clamp(170px, 22vh, 230px); flex: 1; }
-.profile-page-kicker { margin: 0 0 16px; color: #666; font-size: 11px; font-weight: 700; letter-spacing: .23em; }
-.profile-page h1 { margin: 0 0 38px; font-size: clamp(54px, 8vw, 94px); line-height: .95; letter-spacing: -.065em; }
-.profile-page-layout { display: grid; grid-template-columns: minmax(0, 1fr) 240px; gap: clamp(32px, 7vw, 90px); align-items: start; }
-.profile-page-layout > img { display: block; width: 100%; height: auto; object-fit: cover; }
-.profile-page-copy { color: #494949; font-size: clamp(17px, 2vw, 21px); line-height: 1.9; }
-.profile-page-copy p { margin: 0 0 18px; }
+.profile-content-layout { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: clamp(24px, 4vw, 48px); align-items: start; }
+.profile-content-image { display: block; width: auto; max-width: 320px; aspect-ratio: 1 / 1; object-fit: cover; object-position: center; }
+.profile-content-copy { min-width: 0; color: #494949; font-family: "蒼刻明朝", "Soukou Mincho", "Songti SC", serif; font-size: clamp(18.5px, 1.7vw, 21.5px); font-weight: 700; line-height: 1.85; }
+.profile-content-copy p { margin: 0; }
+.profile-latin { font-family: "Times New Roman", Times, serif; font-weight: 700; }
+.profile-summary-section h2 { font-family: "Times New Roman", Times, serif; font-weight: 700; }
+.profile-page-kicker { margin: 0 0 16px; color: #666; font-size: 11px; font-weight: 700; letter-spacing: .23em; font-family: "Times New Roman", Times, serif; }
+.profile-page h1 { margin: 0 0 38px; font-family: "Times New Roman", Times, serif; font-size: clamp(56px, 8vw, 98px); font-weight: 700; line-height: .95; letter-spacing: -.065em; }
 
 .track-list { display: grid; gap: 14px; margin-top: 30px; }
 .lyrics-list-section { padding-top: clamp(72px, 9vw, 110px); }
@@ -157,15 +148,13 @@ main { min-height: 100vh; display: flex; flex-direction: column; }
   .hero h1 { font-size: clamp(62px, 17vw, 112px); }
   .content { width: min(100% - 40px, 1120px); padding: 86px 0; }
   .profile-summary-section { padding-top: 62px; }
-  .profile-summary-layout { grid-template-columns: minmax(0, 1fr) 96px; gap: 18px; }
-  .profile-summary-image { width: 96px; height: 96px; }
-  .profile-summary-copy { font-size: 15px; line-height: 1.8; }
+  .profile-content-layout { grid-template-columns: 96px minmax(0, 1fr); gap: 16px; }
+  .profile-content-image { width: 96px; min-width: 96px; max-width: 96px; height: 96px !important; }
+  .profile-content-copy { font-size: 16.5px; line-height: 1.85; }
   .profile-actions { gap: 12px; }
   .profile-actions .social-links { gap: 6px; }
   .profile-actions .social-links a { width: 34px; height: 34px; }
   .profile-page { padding-top: 140px; }
-  .profile-page-layout { grid-template-columns: 1fr; gap: 26px; }
-  .profile-page-layout > img { width: min(100%, 240px); }
   .profile-page h1 { margin-bottom: 28px; }
   .track-card { gap: 16px; min-height: 104px; padding: 22px 18px; }
   .album-english { display: block; margin-top: 3px; font-size: 16px; }

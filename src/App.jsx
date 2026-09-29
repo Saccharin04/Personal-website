@@ -1,3 +1,4 @@
+import { useLayoutEffect, useRef, useState } from "react"
 import "./App.css"
 import aboutImage from "./assets/profile.jpg"
 
@@ -63,18 +64,7 @@ function App() {
 
       <section id="profile" className="content profile-summary-section">
         <h2>Profile</h2>
-        <div className="profile-summary-layout">
-          <div className="profile-summary-copy">
-            <p>Saccharin，自2023年开始活动至今。活动范围主要包括作曲、作词，以及其他领域。</p>
-            <p>作为医学生，目前就读于复旦大学上海医学院；本职之内从事神经与免疫方向的科研。</p>
-            <p>对哲学、历史和音乐有相当程度的爱好，因而对此进行阐述与创作。</p>
-            <div className="profile-actions">
-              <SocialLinks compact />
-              <a className="profile-read-more" href={profilePath}>Read more <span aria-hidden="true">↗</span></a>
-            </div>
-          </div>
-          <img className="profile-summary-image" src={aboutImage} alt="Saccharin 的头像" />
-        </div>
+        <ProfileContent summary />
       </section>
 
       <section id="music" className="content music-section">
@@ -132,14 +122,7 @@ function ProfilePage() {
       <section className="profile-page content">
         <p className="profile-page-kicker">PROFILE</p>
         <h1>Profile</h1>
-        <div className="profile-page-layout">
-          <div className="profile-page-copy">
-            <p>Saccharin，自2023年开始活动至今。活动范围主要包括作曲、作词，以及其他领域。</p>
-            <p>作为医学生，目前就读于复旦大学上海医学院；本职之内从事神经与免疫方向的科研。</p>
-            <p>对哲学、历史和音乐有相当程度的爱好，因而对此进行阐述与创作。</p>
-          </div>
-          <img src={aboutImage} alt="Saccharin 的头像" />
-        </div>
+        <ProfileContent />
       </section>
 
       <footer className="site-footer">
@@ -147,6 +130,45 @@ function ProfilePage() {
         <p>© Saccharin</p>
       </footer>
     </main>
+  )
+}
+
+
+function ProfileContent({ summary = false }) {
+  const textRef = useRef(null)
+  const [textHeight, setTextHeight] = useState(0)
+
+  useLayoutEffect(() => {
+    const text = textRef.current
+    if (!text) return undefined
+
+    const updateHeight = () => setTextHeight(Math.ceil(text.getBoundingClientRect().height))
+    updateHeight()
+    const observer = new ResizeObserver(updateHeight)
+    observer.observe(text)
+    return () => observer.disconnect()
+  }, [])
+
+  return (
+    <div className={`profile-content-layout${summary ? " is-summary" : ""}`}>
+      <img
+        className="profile-content-image"
+        src={aboutImage}
+        alt="Saccharin 的头像"
+        style={textHeight ? { height: `${textHeight}px` } : undefined}
+      />
+      <div className="profile-content-copy" ref={textRef}>
+        <p>
+          <span className="profile-latin">Saccharin</span>，自<span className="profile-latin">2023</span>年开始活动至今。活动范围主要包括作曲、作词，以及其他领域。作为医学生，目前就读于复旦大学上海医学院；本职之内从事神经与免疫方向的科研。对哲学、历史和音乐有相当程度的爱好，因而对此进行阐述与创作。
+        </p>
+        {summary && (
+          <div className="profile-actions">
+            <SocialLinks compact />
+            <a className="profile-read-more" href={profilePath}>Read more <span aria-hidden="true">↗</span></a>
+          </div>
+        )}
+      </div>
+    </div>
   )
 }
 
