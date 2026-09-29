@@ -164,7 +164,7 @@ function ProfileContent({ summary = false }) {
         {summary && (
           <div className="profile-actions">
             <SocialLinks compact />
-            <a className="profile-read-more" href={profilePath}>Read more <span aria-hidden="true">↗</span></a>
+            <a className="profile-read-more" href={profilePath}>Read more</a>
           </div>
         )}
       </div>
