@@ -7,10 +7,10 @@ const channelPath = `${siteBase}channel-4am/`
 const profilePath = `${siteBase}profile/`
 
 const albums = [
-  { number: "01", title: "逃离夜晚", englishTitle: "Endless Night", years: "2020–2023年" },
-  { number: "02", title: "过期食品", englishTitle: "Overdue", years: "2024年" },
-  { number: "03", title: "椎上切迹", englishTitle: "The Third Sacrifice", years: "2024年" },
-  { number: "04", title: "午前四时电台", englishTitle: "Channel 4:00am", years: "2024–2026年", href: channelPath },
+  { number: "01", title: "逃離夜晚", englishTitle: "Endless Night", years: "2020–2023年" },
+  { number: "02", title: "過期食品", englishTitle: "Overdue", years: "2024年" },
+  { number: "03", title: "椎上切跡", englishTitle: "The Third Sacrifice", years: "2024年" },
+  { number: "04", title: "午前四時電台", englishTitle: "Channel 4:00am", years: "2024–2026年", href: channelPath },
 ]
 
 const lyrics = [

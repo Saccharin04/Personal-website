@@ -52,7 +52,7 @@ main { min-height: 100vh; display: flex; flex-direction: column; }
 .explore-button {
   margin-top: 34px; padding: 14px 24px; min-width: 150px;
   display: inline-flex; justify-content: center; border-radius: 0;
-  border: 1px solid var(--ink); background: var(--ink); color: #fff;
+  border: 2px solid #000; background: var(--ink); color: #fff;
   text-decoration: none; font-size: 13px; letter-spacing: .04em;
   transition: background .2s ease, color .2s ease;
 }
@@ -85,7 +85,7 @@ main { min-height: 100vh; display: flex; flex-direction: column; }
 .lyrics-list-section { padding-top: clamp(72px, 9vw, 110px); }
 .track-card {
   display: flex; align-items: center; gap: 24px; min-height: 118px;
-  padding: 28px 30px; border: 1px solid #cfcfcf; border-radius: 0;
+  padding: 28px 30px; border: 2px solid #000; border-radius: 0;
   background: #fff; color: var(--ink); text-decoration: none;
   transition: background .22s ease, color .22s ease, border-color .22s ease;
 }
@@ -113,7 +113,7 @@ main { min-height: 100vh; display: flex; flex-direction: column; }
 .lyric-buttons { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
 .lyric-button {
   min-height: 76px; padding: 15px 18px; display: flex; align-items: center; gap: 14px;
-  border: 1px solid #cfcfcf; border-radius: 0; background: #fff; color: var(--ink);
+  border: 2px solid #000; border-radius: 0; background: #fff; color: var(--ink);
   text-align: left; font: inherit; cursor: pointer;
 }
 .lyric-button span { color: #666; font-size: 11px; letter-spacing: .12em; }
@@ -123,7 +123,7 @@ main { min-height: 100vh; display: flex; flex-direction: column; }
 .lyric-button:not(.is-coming-soon) { border-color: var(--ink); }
 .lyric-button:disabled:not(.is-selected) { color: #b2b2b2; cursor: default; background: #fff; }
 .lyric-button:disabled:not(.is-selected) span { color: #777; }
-.lyric-button.is-coming-soon { border-color: #d9d9d9; color: #b2b2b2; }
+.lyric-button.is-coming-soon { border-color: #000; color: #b2b2b2; }
 .lyric-button.is-coming-soon strong { font-weight: 400; }
 .lyric-button.is-coming-soon:disabled { background: #fff; color: #b2b2b2; }
 .lyric-panel { margin-top: 34px; min-height: 240px; padding: 32px; border: 1px solid var(--ink); background: #f7f7f7; }
@@ -137,10 +137,10 @@ main { min-height: 100vh; display: flex; flex-direction: column; }
 .social-links { display: flex; align-items: center; gap: 12px; }
 .social-links a {
   width: 46px; height: 46px; display: grid; place-items: center;
-  border: 1px solid var(--ink); border-radius: 0; background: var(--ink); color: #fff;
+  border: 2px solid #000; border-radius: 0; background: #fff; color: #000;
   transition: color .2s ease, background .2s ease, transform .2s ease;
 }
-.social-links a:hover { background: transparent; color: var(--ink); transform: translateY(-2px); }
+.social-links a:hover { background: var(--ink); color: #fff; transform: translateY(-2px); }
 .social-links svg { width: 18px; height: 18px; fill: currentColor; }
 :focus-visible { outline: 2px solid #111; outline-offset: 4px; }
 
