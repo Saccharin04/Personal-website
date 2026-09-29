@@ -68,31 +68,19 @@ main { min-height: 100vh; display: flex; flex-direction: column; }
 .content h2 { font-size: clamp(48px, 8vw, 92px); letter-spacing: -.065em; line-height: .95; margin: 0 0 30px; font-weight: 800; }
 .section-intro { max-width: 750px; color: #494949; font-size: clamp(17px, 2vw, 21px); line-height: 1.7; margin: 0; }
 .about-intro { max-width: 1000px; line-height: 1.9; }
+.about-layout { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(280px, .8fr); gap: clamp(32px, 6vw, 80px); align-items: start; }
+.about-figure { margin: 0; }
+.about-figure img { display: block; width: 100%; height: auto; object-fit: cover; }
+.about-figure figcaption { margin-top: 14px; color: #555; font-size: 14px; line-height: 1.6; }
+.about-figure figcaption a { color: inherit; text-underline-offset: 3px; }
 .about-intro [lang="zh-CN"] {
   font-family: "Soukou Mincho", "Songti SC", "Noto Serif CJK SC", serif;
   font-weight: 700;
   filter: url(#roughen-threshold);
 }
 
-.research-grid {
-  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px;
-  margin-top: 52px;
-}
-.research-card {
-  position: relative; min-height: 220px; padding: 28px 30px;
-  display: flex; flex-direction: column; align-items: flex-start;
-  border: 1px solid #cfcfcf; border-radius: 0; background: #fff;
-  transition: background .22s ease, color .22s ease, border-color .22s ease;
-}
-.research-card:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
-.card-index { font-size: 11px; letter-spacing: .13em; color: #666; }
-.research-card:hover .card-index, .research-card:hover p, .research-card:hover .card-arrow { color: #c8c8c8; }
-.research-card h3 { font-size: clamp(23px, 3vw, 31px); font-weight: 700; margin: 32px 0 9px; letter-spacing: -.04em; }
-.research-card p { max-width: 390px; padding-right: 20px; color: #5b5b5b; font-size: 15px; line-height: 1.65; }
-.card-arrow { position: absolute; right: 26px; bottom: 24px; color: #222; transition: transform .2s ease; }
-.research-card:hover .card-arrow { transform: translate(3px, -3px); }
-
-.track-list { display: grid; gap: 14px; margin-top: 50px; }
+.track-list { display: grid; gap: 14px; margin-top: 30px; }
+.lyrics-list-section { padding-top: clamp(72px, 9vw, 110px); }
 .track-card {
   display: flex; align-items: center; gap: 24px; min-height: 118px;
   padding: 28px 30px; border: 1px solid #cfcfcf; border-radius: 0;
@@ -152,7 +140,6 @@ main { min-height: 100vh; display: flex; flex-direction: column; }
 }
 .social-links a:hover { background: transparent; color: var(--ink); transform: translateY(-2px); }
 .social-links svg { width: 18px; height: 18px; fill: currentColor; }
-.bilibili-mark { font-size: 18px; font-weight: 800; line-height: 1; }
 :focus-visible { outline: 2px solid #111; outline-offset: 4px; }
 
 @media (max-width: 640px) {
@@ -166,9 +153,8 @@ main { min-height: 100vh; display: flex; flex-direction: column; }
   .about-section { padding-top: 62px; }
   .about-line-break { display: none; }
   .about-intro { line-height: 1.85; }
-  .research-grid { grid-template-columns: 1fr; gap: 12px; margin-top: 34px; }
-  .research-card { min-height: 175px; padding: 23px; }
-  .research-card h3 { margin-top: 24px; }
+  .about-layout { grid-template-columns: 1fr; gap: 30px; }
+  .about-figure { width: 100%; max-width: 480px; }
   .track-card { gap: 16px; min-height: 104px; padding: 22px 18px; }
   .album-english { display: block; margin-top: 3px; font-size: 16px; }
   .album-slash { display: none; }

@@ -1,13 +1,8 @@
 import "./App.css"
+import aboutImage from "./assets/profile.jpg"
 
 const siteBase = import.meta.env.BASE_URL
 const channelPath = `${siteBase}channel-4am/`
-
-const researchAreas = [
-  { title: "Neuroscience", description: "Exploring the nervous system, neural circuits and brain function." },
-  { title: "Microbiomes", description: "Studying microbial communities and their relationships with human health." },
-  { title: "Immunology", description: "Understanding immune systems and their responses to the world around us." },
-]
 
 const albums = [
   { number: "01", title: "逃离夜晚", englishTitle: "Endless Night", years: "2020–2023年" },
@@ -41,8 +36,8 @@ function App() {
         <a href="#top" className="logo">Saccharin</a>
         <div className="nav-links">
           <a href="#about">About</a>
-          <a href="#research">Research</a>
           <a href="#music">Music</a>
+          <a href="#lyrics">Lyrics</a>
         </div>
       </nav>
 
@@ -62,52 +57,51 @@ function App() {
       </section>
 
       <section id="about" className="content about-section">
-        <p className="section-number">01 / ABOUT</p>
         <h2>About</h2>
-        <p className="section-intro about-intro">
-          Saccharin<span lang="zh-CN">是一个跨越医学、生命科学、音乐与哲学等领域的个人研究与创作项目。</span><br className="about-line-break" />
-          <span lang="zh-CN">其学术兴趣主要涉及医学、神经科学、神经技术、生物医学与计算技术，</span><br className="about-line-break" />
-          <span lang="zh-CN">关注神经系统的结构与功能，以及实验科学、计算方法与神经技术在理解生物系统和认知过程中的应用。</span><br className="about-line-break" />
-          <span lang="zh-CN">在科研与学习之外，</span>Saccharin<span lang="zh-CN"> 亦从事音乐创作、歌词写作与文字创作，</span><br className="about-line-break" />
-          <span lang="zh-CN">相关作品涉及音乐、哲学、记忆、情感、个体经验及意义等主题。</span><br className="about-line-break" />
-          <span lang="zh-CN">该项目并不试图将这些领域归纳为单一的职业身份，</span><br className="about-line-break" />
-          <span lang="zh-CN">而是作为一个持续整理研究、创作、知识与思想的个人空间。</span>
-        </p>
-      </section>
-
-      <section id="research" className="content">
-        <p className="section-number">02 / RESEARCH</p>
-        <h2>Research</h2>
-        <p className="section-intro">Interested in neuroscience, microbiomes and immunology research.</p>
-        <div className="research-grid">
-          {researchAreas.map((area, index) => (
-            <article className="research-card" key={area.title}>
-              <span className="card-index">0{index + 1}</span>
-              <h3>{area.title}</h3>
-              <p>{area.description}</p>
-              <span className="card-arrow" aria-hidden="true">↗</span>
-            </article>
-          ))}
+        <div className="about-layout">
+          <p className="section-intro about-intro">
+            Saccharin<span lang="zh-CN">是一个跨越医学、生命科学、音乐与哲学等领域的个人研究与创作项目。</span><br className="about-line-break" />
+            <span lang="zh-CN">其学术兴趣主要涉及医学、神经科学、神经技术、生物医学与计算技术，</span><br className="about-line-break" />
+            <span lang="zh-CN">关注神经系统的结构与功能，以及实验科学、计算方法与神经技术在理解生物系统和认知过程中的应用。</span><br className="about-line-break" />
+            <span lang="zh-CN">在科研与学习之外，</span>Saccharin<span lang="zh-CN"> 亦从事音乐创作、歌词写作与文字创作，相关作品涉及音乐、哲学、记忆、情感、个体经验及意义等主题。</span><br className="about-line-break" />
+            <span lang="zh-CN">该项目是一个持续整理研究、创作、知识与思想的个人空间。</span>
+          </p>
+          <figure className="about-figure">
+            <img src={aboutImage} alt="Saccharin 的头像" />
+            <figcaption><span lang="zh-CN">联系方式</span> Contact：<a href="mailto:Saccharin04@outlook.com">Saccharin04@outlook.com</a></figcaption>
+          </figure>
         </div>
       </section>
 
       <section id="music" className="content music-section">
-        <p className="section-number">03 / MUSIC</p>
         <h2>Music</h2>
-        <p className="section-intro">Creating music and exploring sound, emotion and ideas.</p>
+        <div className="track-list">
+          <a className="track-card featured-track" href="https://www.bilibili.com/video/BV1eRNf6MEt1/" target="_blank" rel="noreferrer">
+            <div className="track-info">
+              <h3>閉鎖 <span className="album-slash">/</span> <span className="album-english">The Cross</span></h3>
+              <p>2026/7/18</p>
+            </div>
+            <span className="album-mark" aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </section>
+
+      <section id="lyrics" className="content lyrics-list-section">
+        <h2>Lyrics</h2>
         <div className="track-list">
           {albums.map((album) => {
             const Card = album.href ? "a" : "article"
             return (
-            <Card className="track-card album-card" key={album.number} href={album.href}>
-              <span className="track-number">{album.number}</span>
-              <div className="track-info">
-                <h3>{album.title}<span className="album-slash"> / </span><span className="album-english">{album.englishTitle}</span></h3>
-                <p>{album.years}</p>
-              </div>
-              <span className="album-mark" aria-hidden="true">↗</span>
-            </Card>
-          )})}
+              <Card className="track-card album-card" key={album.number} href={album.href}>
+                <span className="track-number">{album.number}</span>
+                <div className="track-info">
+                  <h3>{album.title}<span className="album-slash"> / </span><span className="album-english">{album.englishTitle}</span></h3>
+                  <p>{album.years}</p>
+                </div>
+                <span className="album-mark" aria-hidden="true">↗</span>
+              </Card>
+            )
+          })}
         </div>
       </section>
 
@@ -131,7 +125,10 @@ function App() {
             </svg>
           </a>
           <a href="https://space.bilibili.com/36468456?spm_id_from=333.1007.0.0" target="_blank" rel="noreferrer" aria-label="Bilibili — Saccharin">
-            <span className="bilibili-mark" aria-hidden="true">哔</span>
+            <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+              <path d="m8 4 2 2m6-2-2 2M5 8h14v11H5z" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M9 12v3m6-3v3" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+            </svg>
           </a>
         </div>
         <p>© Saccharin</p>
@@ -147,8 +144,8 @@ function ChannelAlbumPage() {
         <a href={`${siteBase}#top`} className="logo">Saccharin</a>
         <div className="nav-links">
           <a href={`${siteBase}#about`}>About</a>
-          <a href={`${siteBase}#research`}>Research</a>
           <a href={`${siteBase}#music`}>Music</a>
+          <a href={`${siteBase}#lyrics`}>Lyrics</a>
         </div>
       </nav>
 
@@ -207,7 +204,10 @@ function ChannelAlbumPage() {
             </svg>
           </a>
           <a href="https://space.bilibili.com/36468456?spm_id_from=333.1007.0.0" target="_blank" rel="noreferrer" aria-label="Bilibili — Saccharin">
-            <span className="bilibili-mark" aria-hidden="true">哔</span>
+            <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+              <path d="m8 4 2 2m6-2-2 2M5 8h14v11H5z" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M9 12v3m6-3v3" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+            </svg>
           </a>
         </div>
         <p>© Saccharin</p>
