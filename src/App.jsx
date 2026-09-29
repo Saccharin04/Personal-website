@@ -1,5 +1,8 @@
 import "./App.css"
 
+const siteBase = import.meta.env.BASE_URL
+const channelPath = `${siteBase}channel-4am/`
+
 const researchAreas = [
   { title: "Neuroscience", description: "Exploring the nervous system, neural circuits and brain function." },
   { title: "Microbiomes", description: "Studying microbial communities and their relationships with human health." },
@@ -10,7 +13,7 @@ const albums = [
   { number: "01", title: "逃离夜晚", englishTitle: "Endless Night", years: "2020–2023年" },
   { number: "02", title: "过期食品", englishTitle: "Overdue", years: "2024年" },
   { number: "03", title: "椎上切迹", englishTitle: "The Third Sacrifice", years: "2024年" },
-  { number: "04", title: "午前四时电台", englishTitle: "Channel 4:00am", years: "2024–2026年", href: "/channel-4am" },
+  { number: "04", title: "午前四时电台", englishTitle: "Channel 4:00am", years: "2024–2026年", href: channelPath },
 ]
 
 const lyricSlots = Array.from({ length: 20 }, (_, index) => ({
@@ -19,7 +22,7 @@ const lyricSlots = Array.from({ length: 20 }, (_, index) => ({
 }))
 
 function App() {
-  if (window.location.pathname.replace(/\/$/, "") === "/channel-4am") {
+  if (window.location.pathname.replace(/\/$/, "") === `${siteBase.replace(/\/$/, "")}/channel-4am`) {
     return <ChannelAlbumPage />
   }
 
@@ -130,11 +133,11 @@ function ChannelAlbumPage() {
   return (
     <main>
       <nav className="navbar" aria-label="Main navigation">
-        <a href="/#top" className="logo">Saccharin</a>
+        <a href={`${siteBase}#top`} className="logo">Saccharin</a>
         <div className="nav-links">
-          <a href="/#about">About</a>
-          <a href="/#research">Research</a>
-          <a href="/#music">Music</a>
+          <a href={`${siteBase}#about`}>About</a>
+          <a href={`${siteBase}#research`}>Research</a>
+          <a href={`${siteBase}#music`}>Music</a>
         </div>
       </nav>
 
@@ -143,7 +146,7 @@ function ChannelAlbumPage() {
         <h1>午前四时电台</h1>
         <p className="album-page-title">Channel 4:00am</p>
         <p className="section-intro">2024–2026年</p>
-        <a className="back-link" href="/#music">← Back to Music</a>
+        <a className="back-link" href={`${siteBase}#music`}>← Back to Music</a>
       </section>
 
       <section className="content lyrics-section">
