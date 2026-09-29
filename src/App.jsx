@@ -51,9 +51,9 @@ function App() {
         <p className="subtitle">LATEST WORK / 最新作品</p>
         <div className="featured-video">
           <iframe
-            src="https://player.bilibili.com/player.html?bvid=BV1eRNf6MEt1&page=1&high_quality=1&danmaku=0"
+            src="https://player.bilibili.com/player.html?bvid=BV1eRNf6MEt1&page=1&high_quality=1&danmaku=0&autoplay=0"
             title="Saccharin 最新作品 — Bilibili 视频播放器"
-            allow="autoplay; fullscreen; picture-in-picture"
+            allow="fullscreen; picture-in-picture"
             allowFullScreen
             loading="lazy"
           />
