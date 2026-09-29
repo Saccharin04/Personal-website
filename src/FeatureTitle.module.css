@@ -1,0 +1,24 @@
+.heading {
+  max-width: 100%;
+  margin: 0 0 8px;
+  font-size: clamp(48px, 8vw, 92px);
+  line-height: .95;
+  letter-spacing: -.065em;
+  font-weight: 800;
+}
+
+/* Keep this heading's typography aligned with the Profile section title. */
+.heroHeading {
+  margin-top: 0;
+}
+
+.heading > span:first-child {
+  margin-left: .16em;
+  font-weight: 400;
+}
+
+.english {
+  font-size: .72em;
+  font-weight: 400;
+  letter-spacing: -.02em;
+}

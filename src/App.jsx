@@ -1,5 +1,6 @@
 import { useLayoutEffect, useRef, useState } from "react"
 import "./App.css"
+import featureTitleStyles from "./FeatureTitle.module.css"
 import aboutImage from "./assets/profile.jpg"
 
 const siteBase = import.meta.env.BASE_URL
@@ -49,7 +50,7 @@ function App() {
 
       <section id="top" className="hero">
         <p className="subtitle">LATEST WORK / 最新作品</p>
-        <h1 className="feature-title">閉鎖 <span>/</span> <span className="feature-title-english">The Cross</span></h1>
+        <h1 className={`${featureTitleStyles.heading} ${featureTitleStyles.heroHeading}`}>閉鎖 <span>/</span> <span className={featureTitleStyles.english}>The Cross</span></h1>
         <div className="featured-video">
           <iframe
             src="https://player.bilibili.com/player.html?bvid=BV1eRNf6MEt1&page=1&high_quality=1&danmaku=0&autoplay=0"
