@@ -16,10 +16,10 @@ const albums = [
   { number: "04", title: "午前四时电台", englishTitle: "Channel 4:00am", years: "2024–2026年", href: channelPath },
 ]
 
-const lyricSlots = Array.from({ length: 20 }, (_, index) => ({
-  number: String(index + 1).padStart(2, "0"),
-  title: index === 0 ? "临前日" : "",
-}))
+const lyrics = [
+  { id: "lyric-01", title: "临前日" },
+  { id: "lyric-02", title: "两种药物冬眠" },
+]
 
 function App() {
   if (window.location.pathname.replace(/\/$/, "") === `${siteBase.replace(/\/$/, "")}/channel-4am`) {
@@ -47,8 +47,16 @@ function App() {
       </nav>
 
       <section id="top" className="hero">
-        <p className="subtitle">WELCOME TO MY WEBSITE</p>
-        <h1>Saccharin</h1>
+        <p className="subtitle">LATEST WORK / 最新作品</p>
+        <div className="featured-video">
+          <iframe
+            src="https://player.bilibili.com/player.html?bvid=BV1eRNf6MEt1&page=1&high_quality=1&danmaku=0"
+            title="Saccharin 最新作品 — Bilibili 视频播放器"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowFullScreen
+            loading="lazy"
+          />
+        </div>
         <p className="description">Medicine · Composing · Lyrics · Philosophy</p>
         <a href="#about" className="explore-button">Explore ↓</a>
       </section>
@@ -122,6 +130,9 @@ function App() {
               <circle cx="17.5" cy="6.8" r="1.2" />
             </svg>
           </a>
+          <a href="https://space.bilibili.com/36468456?spm_id_from=333.1007.0.0" target="_blank" rel="noreferrer" aria-label="Bilibili — Saccharin">
+            <span className="bilibili-mark" aria-hidden="true">哔</span>
+          </a>
         </div>
         <p>© Saccharin</p>
       </footer>
@@ -151,25 +162,31 @@ function ChannelAlbumPage() {
 
       <section className="content lyrics-section">
         <p className="section-number">LYRICS / 歌词</p>
-        <h2>20 songs</h2>
+        <h2>Lyrics</h2>
         <div className="lyric-buttons" aria-label="Lyrics list">
-          {lyricSlots.map((lyric, index) => (
+          {lyrics.map((lyric, index) => (
             <button
               className={`lyric-button${index === 0 ? " is-selected" : ""}`}
               type="button"
-              key={lyric.number}
-              disabled={index !== 0}
-              aria-label={lyric.title || `未命名歌词 ${lyric.number}`}
-              onClick={() => document.getElementById("lyric-01")?.scrollIntoView({ behavior: "smooth" })}
+              key={lyric.id}
+              onClick={() => document.getElementById(lyric.id)?.scrollIntoView({ behavior: "smooth" })}
             >
-              <span>{lyric.number}</span>
-              {lyric.title && <strong>{lyric.title}</strong>}
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <strong>{lyric.title}</strong>
             </button>
           ))}
+          <button className="lyric-button is-coming-soon" type="button" disabled>
+            <strong>待续…</strong>
+          </button>
         </div>
         <article className="lyric-panel" id="lyric-01">
           <p className="section-number">01 / LYRICS</p>
           <h3>临前日</h3>
+          <p>歌词文本待补充。</p>
+        </article>
+        <article className="lyric-panel" id="lyric-02">
+          <p className="section-number">02 / LYRICS</p>
+          <h3>两种药物冬眠</h3>
           <p>歌词文本待补充。</p>
         </article>
       </section>
@@ -188,6 +205,9 @@ function ChannelAlbumPage() {
               <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" strokeWidth="2" />
               <circle cx="17.5" cy="6.8" r="1.2" />
             </svg>
+          </a>
+          <a href="https://space.bilibili.com/36468456?spm_id_from=333.1007.0.0" target="_blank" rel="noreferrer" aria-label="Bilibili — Saccharin">
+            <span className="bilibili-mark" aria-hidden="true">哔</span>
           </a>
         </div>
         <p>© Saccharin</p>
