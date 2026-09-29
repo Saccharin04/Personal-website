@@ -160,7 +160,7 @@ function ProfileContent({ summary = false }) {
       />
       <div className="profile-content-copy" ref={textRef}>
         <p>
-          <span className="profile-latin">Saccharin</span>，自<span className="profile-latin">2023</span>年开始活动至今。活动范围主要包括作曲、作词，以及其他领域。作为医学生，目前就读于复旦大学上海医学院；本职之内从事神经与免疫方向的科研。对哲学、历史和音乐有相当程度的爱好，因而对此进行阐述与创作。
+          <span className="profile-latin">Saccharin</span>，自<span className="profile-latin">2023</span>年开始活动至今。活动范围主要包括作曲、作词，以及其他领域。作为医学生，目前就读于复旦大学上海医学院。对哲学、历史和音乐有相当程度的爱好，因而对此进行阐述与创作。
         </p>
         {summary && (
           <div className="profile-actions">
