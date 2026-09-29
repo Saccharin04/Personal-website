@@ -132,7 +132,7 @@ main { min-height: 100vh; display: flex; flex-direction: column; }
 .social-links { display: flex; align-items: center; gap: 12px; }
 .social-links a {
   width: 46px; height: 46px; display: grid; place-items: center;
-  border: 2px solid #000; border-radius: 0; background: #fff; color: #000;
+  border: 2px solid #000; border-radius: 0; background: #000; color: #fff;
   transition: color .2s ease, background .2s ease, transform .2s ease;
 }
 .social-links a:hover { background: var(--ink); color: #fff; transform: translateY(-2px); }
