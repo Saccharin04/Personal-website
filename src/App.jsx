@@ -9,7 +9,7 @@ const profilePath = `${siteBase}profile/`
 
 const albums = [
   { number: "01", title: "逃離夜晚", englishTitle: "Endless Night", years: "2020–2023年" },
-  { number: "02", title: "過期食品", englishTitle: "Overdue", years: "2024年" },
+  { number: "02", title: "過期食品", englishTitle: "Overdue", years: "2023-2024年" },
   { number: "03", title: "椎上切跡", englishTitle: "The Third Sacrifice", years: "2024年" },
   { number: "04", title: "午前四時電台", englishTitle: "Channel 4:00am", years: "2024–2026年", href: channelPath },
 ]
@@ -74,7 +74,7 @@ function App() {
           <a className="track-card featured-track" href="https://www.bilibili.com/video/BV1eRNf6MEt1/" target="_blank" rel="noreferrer">
             <div className="track-info">
               <h3>閉鎖 <span className="album-slash">/</span> <span className="album-english">The Cross</span></h3>
-              <p>2026/7/18</p>
+              <p>2026年7月18日</p>
             </div>
             <span className="album-mark" aria-hidden="true">↗</span>
           </a>
