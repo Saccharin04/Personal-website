@@ -193,7 +193,7 @@ function StandaloneAlbumPage({ album }) {
       </nav>
 
       <section className="album-hero">
-        <p className="section-number">{album.number} / ALBUM</p>
+        <p className="section-number">ALBUM {album.number}</p>
         <h1>{album.title}</h1>
         <p className="album-page-title">{album.englishTitle}</p>
         <p className="section-intro">{album.years}</p>
@@ -201,7 +201,6 @@ function StandaloneAlbumPage({ album }) {
       </section>
 
       <section className="content lyrics-section">
-        <p className="section-number">LYRICS / 歌词</p>
         <h2>Lyrics</h2>
         <article className="lyric-panel album-lyrics-empty">
           <p className="section-number">{album.number} / LYRICS</p>
@@ -372,7 +371,7 @@ function ChannelAlbumPage() {
       </nav>
 
       <section className="album-hero">
-        <p className="section-number">04 / ALBUM</p>
+        <p className="section-number">ALBUM 04</p>
         <h1>午前四時電台</h1>
         <p className="album-page-title">Channel 4:00am</p>
         <p className="section-intro">2024–2026年</p>
@@ -380,7 +379,6 @@ function ChannelAlbumPage() {
       </section>
 
       <section className="content lyrics-section">
-        <p className="section-number">LYRICS / 歌词</p>
         <h2>Lyrics</h2>
         <div className="lyric-buttons" aria-label="Lyrics list" ref={lyricButtonsRef}>
           {lyrics.map((lyric, index) => (
