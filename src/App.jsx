@@ -90,7 +90,7 @@ function App() {
             loading="lazy"
           />
         </div>
-        <a href="#profile" className="explore-button">Explore <span className="explore-arrow" aria-hidden="true">↓</span></a>
+        <a href="#profile" className="explore-button">Explore <span className="explore-arrow" aria-hidden="true"><svg viewBox="0 0 16 16" focusable="false"><path d="M8 2v11M4 9l4 4 4-4" /></svg></span></a>
       </section>
 
       <section id="profile" className="content profile-summary-section">
