@@ -30,7 +30,11 @@ jobs:
       - name: Build site
         run: npm run build
       - name: Add direct routes for album and profile pages
-        run: mkdir -p dist/channel-4am dist/profile && cp dist/index.html dist/channel-4am/index.html && cp dist/index.html dist/profile/index.html
+        run: |
+          for route in channel-4am profile albums/endless-night albums/overdue albums/the-third-sacrifice; do
+            mkdir -p "dist/$route"
+            cp dist/index.html "dist/$route/index.html"
+          done
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
