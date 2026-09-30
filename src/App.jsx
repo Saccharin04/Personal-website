@@ -45,6 +45,14 @@ const lyrics = [
   { id: "lyric-03", title: "摄食像" },
 ]
 
+const argumentsVideos = [
+  { title: "概念、判斷，作為認知的基本結構", date: "2025年10月24日", href: "https://www.bilibili.com/video/BV1GTsWzAE54/" },
+  { title: "一般方法、結構分析與有效變換", date: "2025年10月26日", href: "https://www.bilibili.com/video/BV1prxPzwEDJ/" },
+  { title: "價值判斷、價值判定、犧牲與代償、價值交換", date: "2025年10月28日", href: "https://www.bilibili.com/video/BV1QvyrB1EZT/" },
+  { title: "信念、證成過程、直覺和三種惡性手段", date: "2025年11月13日", href: "https://www.bilibili.com/video/BV1KwCHBCEKh/" },
+  { title: "第一哲學的初步構建", date: "2025年12月16日", href: "https://www.bilibili.com/video/BV1iaqaB3EFs/" },
+]
+
 function App() {
   const route = window.location.pathname.replace(/\/$/, "")
   if (route === `${siteBase.replace(/\/$/, "")}/channel-4am`) {
@@ -133,6 +141,21 @@ function App() {
               </a>
             )
           })}
+        </div>
+      </section>
+
+      <section id="arguments" className="content arguments-section">
+        <h2>Arguments</h2>
+        <div className="track-list">
+          {argumentsVideos.map((video) => (
+            <a className="track-card" key={video.href} href={video.href} target="_blank" rel="noreferrer">
+              <div className="track-info">
+                <h3>{video.title}</h3>
+                <p>{video.date}</p>
+              </div>
+              <span className="album-mark" aria-hidden="true">↗</span>
+            </a>
+          ))}
         </div>
       </section>
 
