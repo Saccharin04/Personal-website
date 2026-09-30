@@ -84,6 +84,13 @@ function App() {
             </div>
             <span className="album-mark" aria-hidden="true">↗</span>
           </a>
+          <a className="track-card featured-track" href="https://www.bilibili.com/video/BV1rnBSBiES7/" target="_blank" rel="noreferrer">
+            <div className="track-info">
+              <h3>失注页 <span className="album-slash">/</span> <span className="album-english">Pages Unnoted</span></h3>
+              <p>2025年12月25日</p>
+            </div>
+            <span className="album-mark" aria-hidden="true">↗</span>
+          </a>
         </div>
       </section>
 
