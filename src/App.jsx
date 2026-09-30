@@ -193,6 +193,21 @@ function SocialLinks({ compact = false }) {
 }
 
 function ChannelAlbumPage() {
+  const [selectedLyric, setSelectedLyric] = useState(lyrics[0])
+  const lyricButtonsRef = useRef(null)
+  const lyricPanelRef = useRef(null)
+
+  const selectLyric = (lyric) => {
+    setSelectedLyric(lyric)
+    window.requestAnimationFrame(() => {
+      lyricPanelRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })
+    })
+  }
+
+  const returnToLyricButtons = () => {
+    lyricButtonsRef.current?.scrollIntoView({ behavior: "smooth", block: "center" })
+  }
+
   return (
     <main>
       <nav className="navbar" aria-label="Main navigation">
@@ -215,13 +230,13 @@ function ChannelAlbumPage() {
       <section className="content lyrics-section">
         <p className="section-number">LYRICS / 歌词</p>
         <h2>Lyrics</h2>
-        <div className="lyric-buttons" aria-label="Lyrics list">
+        <div className="lyric-buttons" aria-label="Lyrics list" ref={lyricButtonsRef}>
           {lyrics.map((lyric, index) => (
             <button
-              className={`lyric-button${index === 0 ? " is-selected" : ""}`}
+              className={`lyric-button${selectedLyric.id === lyric.id ? " is-selected" : ""}`}
               type="button"
               key={lyric.id}
-              onClick={() => document.getElementById(lyric.id)?.scrollIntoView({ behavior: "smooth" })}
+              onClick={() => selectLyric(lyric)}
             >
               <span>{String(index + 1).padStart(2, "0")}</span>
               <strong>{lyric.title}</strong>
@@ -231,16 +246,12 @@ function ChannelAlbumPage() {
             <strong>待续…</strong>
           </button>
         </div>
-        <article className="lyric-panel" id="lyric-01">
-          <p className="section-number">01 / LYRICS</p>
-          <h3>临前日</h3>
+        <article className="lyric-panel" id="selected-lyrics" ref={lyricPanelRef} aria-live="polite">
+          <p className="section-number">{String(lyrics.indexOf(selectedLyric) + 1).padStart(2, "0")} / LYRICS</p>
+          <h3>{selectedLyric.title}</h3>
           <p>歌词文本待补充。</p>
         </article>
-        <article className="lyric-panel" id="lyric-02">
-          <p className="section-number">02 / LYRICS</p>
-          <h3>两种药物冬眠</h3>
-          <p>歌词文本待补充。</p>
-        </article>
+        <button className="lyric-return" type="button" onClick={returnToLyricButtons}>返回</button>
       </section>
 
       <footer className="site-footer">
