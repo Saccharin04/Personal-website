@@ -2,6 +2,7 @@ import { useLayoutEffect, useRef, useState } from "react"
 import "./App.css"
 import featureTitleStyles from "./FeatureTitle.module.css"
 import aboutImage from "./assets/profile.jpg"
+import galleryImage from "./assets/gallery-eye-collage.png"
 
 const siteBase = import.meta.env.BASE_URL
 const channelPath = `${siteBase}channel-4am/`
@@ -160,6 +161,16 @@ function App() {
         </div>
       </section>
 
+      <section id="gallery" className="content gallery-section">
+        <h2>Gallery</h2>
+        <GalleryCarousel />
+      </section>
+
+      <section id="teasers" className="content teasers-section">
+        <h2>Teasers</h2>
+        <div className="teasers-space" aria-hidden="true" />
+      </section>
+
       <footer className="site-footer">
         <SocialLinks />
         <p>© Saccharin</p>
@@ -202,6 +213,46 @@ function StandaloneAlbumPage({ album }) {
         <p>© Saccharin</p>
       </footer>
     </main>
+  )
+}
+
+function GalleryCarousel() {
+  const galleryItems = [{ src: galleryImage, alt: "Gallery 展览作品" }]
+  const [activeIndex, setActiveIndex] = useState(0)
+  const [motion, setMotion] = useState({ direction: "", version: 0 })
+
+  const move = (direction) => {
+    const nextIndex = activeIndex + direction
+    if (nextIndex < 0 || nextIndex >= galleryItems.length) {
+      setMotion((current) => ({
+        direction: direction < 0 ? "left" : "right",
+        version: current.version + 1,
+      }))
+      return
+    }
+
+    setActiveIndex(nextIndex)
+    setMotion((current) => ({ direction: "", version: current.version + 1 }))
+  }
+
+  return (
+    <div className="gallery-carousel" aria-label="Gallery 展览图片">
+      <button className="gallery-arrow" type="button" aria-label="上一张图片" onClick={() => move(-1)}>&lt;</button>
+      <div
+        className={`gallery-viewport${motion.direction ? ` is-blocked-${motion.direction}` : ""}`}
+        key={`${activeIndex}-${motion.version}`}
+      >
+        {galleryItems.map((item, index) => {
+          const position = index === activeIndex ? "active" : index === activeIndex - 1 ? "previous" : index === activeIndex + 1 ? "next" : "hidden"
+          return (
+            <figure className={`gallery-card is-${position}`} key={item.src}>
+              <img src={item.src} alt={item.alt} />
+            </figure>
+          )
+        })}
+      </div>
+      <button className="gallery-arrow" type="button" aria-label="下一张图片" onClick={() => move(1)}>&gt;</button>
+    </div>
   )
 }
 
