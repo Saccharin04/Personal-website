@@ -121,9 +121,13 @@ function App() {
       <nav className="navbar" aria-label="Main navigation">
         <a href="#top" className="logo">Saccharin</a>
         <div className="nav-links">
+          <a href="#top">Latest Work</a>
           <a href="#profile">Profile</a>
           <a href="#music">Music</a>
           <a href="#lyrics">Lyric Albums</a>
+          <a href="#arguments">Arguments</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#teasers">Teasers</a>
         </div>
       </nav>
 

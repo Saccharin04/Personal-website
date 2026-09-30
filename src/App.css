@@ -203,8 +203,9 @@ main { min-height: 100vh; display: flex; flex-direction: column; }
 
 @media (max-width: 640px) {
   .navbar { padding: 17px 20px; }
-  .nav-links { gap: 16px; }
-  .nav-links a { font-size: 12px; }
+  .nav-links { min-width: 0; gap: 16px; overflow-x: auto; scrollbar-width: none; }
+  .nav-links::-webkit-scrollbar { display: none; }
+  .nav-links a { flex: 0 0 auto; font-size: 12px; white-space: nowrap; }
   .hero { min-height: 78svh; padding: 130px 24px 50px; }
   .featured-video { width: 100%; }
   .content { width: min(100% - 40px, 1120px); padding: 86px 0; }
