@@ -6,11 +6,12 @@ import aboutImage from "./assets/profile.jpg"
 const siteBase = import.meta.env.BASE_URL
 const channelPath = `${siteBase}channel-4am/`
 const profilePath = `${siteBase}profile/`
+const albumBase = `${siteBase}albums/`
 
 const albums = [
-  { number: "01", title: "逃離夜晚", englishTitle: "Endless Night", years: "2020–2023年" },
-  { number: "02", title: "過期食品", englishTitle: "Overdue", years: "2023-2024年" },
-  { number: "03", title: "椎上切跡", englishTitle: "The Third Sacrifice", years: "2024年" },
+  { number: "01", title: "逃離夜晚", englishTitle: "Endless Night", years: "2020–2023年", slug: "endless-night", href: `${albumBase}endless-night/` },
+  { number: "02", title: "過期食品", englishTitle: "Overdue", years: "2023-2024年", slug: "overdue", href: `${albumBase}overdue/` },
+  { number: "03", title: "椎上切跡", englishTitle: "The Third Sacrifice", years: "2024年", slug: "the-third-sacrifice", href: `${albumBase}the-third-sacrifice/` },
   { number: "04", title: "午前四時電台", englishTitle: "Channel 4:00am", years: "2024–2026年", href: channelPath },
 ]
 
@@ -27,6 +28,10 @@ function App() {
   }
   if (route === `${siteBase.replace(/\/$/, "")}/profile`) {
     return <ProfilePage />
+  }
+  const standaloneAlbum = albums.find((album) => album.slug && route === `${siteBase.replace(/\/$/, "")}/albums/${album.slug}`)
+  if (standaloneAlbum) {
+    return <StandaloneAlbumPage album={standaloneAlbum} />
   }
 
   return (
@@ -86,19 +91,55 @@ function App() {
         <h2>Lyric Albums</h2>
         <div className="track-list">
           {albums.map((album) => {
-            const Card = album.href ? "a" : "article"
             return (
-              <Card className="track-card album-card" key={album.number} href={album.href}>
+              <a className="track-card album-card" key={album.number} href={album.href}>
                 <span className="track-number">{album.number}</span>
                 <div className="track-info">
                   <h3>{album.title}<span className="album-slash"> / </span><span className="album-english">{album.englishTitle}</span></h3>
                   <p>{album.years}</p>
                 </div>
                 <span className="album-mark" aria-hidden="true">↗</span>
-              </Card>
+              </a>
             )
           })}
         </div>
+      </section>
+
+      <footer className="site-footer">
+        <SocialLinks />
+        <p>© Saccharin</p>
+      </footer>
+    </main>
+  )
+}
+
+function StandaloneAlbumPage({ album }) {
+  return (
+    <main>
+      <nav className="navbar" aria-label="Main navigation">
+        <a href={siteBase} className="logo">Saccharin</a>
+        <div className="nav-links">
+          <a href={`${siteBase}#profile`}>Profile</a>
+          <a href={`${siteBase}#music`}>Music</a>
+          <a href={`${siteBase}#lyrics`}>Lyric Albums</a>
+        </div>
+      </nav>
+
+      <section className="album-hero">
+        <p className="section-number">{album.number} / ALBUM</p>
+        <h1>{album.title}</h1>
+        <p className="album-page-title">{album.englishTitle}</p>
+        <p className="section-intro">{album.years}</p>
+        <a className="back-link" href={`${siteBase}#lyrics`}>← Back to Lyric Albums</a>
+      </section>
+
+      <section className="content lyrics-section">
+        <p className="section-number">LYRICS / 歌词</p>
+        <h2>Lyrics</h2>
+        <article className="lyric-panel album-lyrics-empty">
+          <p className="section-number">{album.number} / LYRICS</p>
+          <p>该专辑的歌曲目录与歌词内容待补充。</p>
+        </article>
       </section>
 
       <footer className="site-footer">
@@ -194,12 +235,14 @@ function SocialLinks({ compact = false }) {
 }
 
 function ChannelAlbumPage() {
-  const [selectedLyric, setSelectedLyric] = useState(lyrics[0])
+  const [selectedLyricId, setSelectedLyricId] = useState(lyrics[0].id)
+  const selectedLyric = lyrics.find((lyric) => lyric.id === selectedLyricId) ?? lyrics[0]
+  const selectedLyricIndex = lyrics.findIndex((lyric) => lyric.id === selectedLyric.id)
   const lyricButtonsRef = useRef(null)
   const lyricPanelRef = useRef(null)
 
   const selectLyric = (lyric) => {
-    setSelectedLyric(lyric)
+    setSelectedLyricId(lyric.id)
     window.requestAnimationFrame(() => {
       lyricPanelRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })
     })
@@ -248,7 +291,7 @@ function ChannelAlbumPage() {
           </button>
         </div>
         <article className="lyric-panel" id="selected-lyrics" ref={lyricPanelRef} aria-live="polite">
-          <p className="section-number">{String(lyrics.indexOf(selectedLyric) + 1).padStart(2, "0")} / LYRICS</p>
+          <p className="section-number">{String(selectedLyricIndex + 1).padStart(2, "0")} / LYRICS</p>
           <h3>{selectedLyric.title}</h3>
           <p>歌词文本待补充。</p>
         </article>
