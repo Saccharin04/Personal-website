@@ -197,7 +197,7 @@ function ProfilePage() {
         <p className="profile-page-kicker">PROFILE</p>
         <h1>Profile</h1>
         <ProfileContent />
-        <a className="back-link" href={siteBase}>← Back to Main page</a>
+        <a className="back-link" href={siteBase}>← Back to Main Page</a>
       </section>
 
       <footer className="site-footer">
