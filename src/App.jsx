@@ -79,7 +79,7 @@ function App() {
             loading="lazy"
           />
         </div>
-        <a href="#profile" className="explore-button">Explore ↓</a>
+        <a href="#profile" className="explore-button">Explore <span className="explore-arrow" aria-hidden="true">↓</span></a>
       </section>
 
       <section id="profile" className="content profile-summary-section">
