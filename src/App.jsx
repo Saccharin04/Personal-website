@@ -30,7 +30,18 @@ const lyrics = [
       ["2024年12月"],
     ],
   },
-  { id: "lyric-02", title: "两种药物冬眠" },
+  {
+    id: "lyric-02",
+    title: "两种药物冬眠",
+    verses: [
+      ["没有人的时候", "就陷入睡眠"],
+      ["夜空和插进夜空的高楼", "一圈一圈地旋转着", "什么时候陷入的无助情感", "现在已经发不出声音"],
+      ["像这样装作不知道", "永远地装作不知道", "慵懒地背过身去"],
+      ["连在一起的欢声笑语", "微寒的空气", "心脏正在收紧", "万分眩目的人们", "时间却相同"],
+      ["没有人的时候", "就陷入睡眠", "和谁都没有关系"],
+      ["2024年12月"],
+    ],
+  },
   { id: "lyric-03", title: "摄食像" },
 ]
 
@@ -186,7 +197,7 @@ function ProfilePage() {
         <p className="profile-page-kicker">PROFILE</p>
         <h1>Profile</h1>
         <ProfileContent />
-        <a className="back-link" href={siteBase}>← Back to main page</a>
+        <a className="back-link" href={siteBase}>← Back to Main page</a>
       </section>
 
       <footer className="site-footer">
@@ -289,7 +300,7 @@ function ChannelAlbumPage() {
         <h1>午前四時電台</h1>
         <p className="album-page-title">Channel 4:00am</p>
         <p className="section-intro">2024–2026年</p>
-        <a className="back-link" href={`${siteBase}#music`}>← Back to Music</a>
+        <a className="back-link" href={`${siteBase}#lyrics`}>← Back to Lyric Albums</a>
       </section>
 
       <section className="content lyrics-section">

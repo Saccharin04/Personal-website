@@ -65,7 +65,7 @@ main { min-height: 100vh; display: flex; flex-direction: column; }
 .section-intro { max-width: 750px; color: #494949; font-size: clamp(17px, 2vw, 21px); line-height: 1.7; margin: 0; }
 .profile-content-layout { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: clamp(24px, 4vw, 48px); align-items: start; }
 .profile-content-image { display: block; width: auto; max-width: 320px; aspect-ratio: 1 / 1; object-fit: cover; object-position: center; }
-.profile-content-copy { min-width: 0; color: #000; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: clamp(18.5px, 1.7vw, 21.5px); font-weight: 700; line-height: 1.85; }
+.profile-content-copy { min-width: 0; color: #000; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: clamp(18.5px, 1.7vw, 21.5px); font-weight: 700; line-height: 1.7; }
 .profile-content-copy p { margin: 0; }
 .profile-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 22px; }
 .profile-actions .social-links { gap: 8px; }
@@ -127,7 +127,7 @@ main { min-height: 100vh; display: flex; flex-direction: column; }
 .lyric-panel > p:last-child { color: #666; font-size: 15px; line-height: 1.8; }
 .lyric-verses { color: #111; font-size: 16px; font-weight: 700; line-height: 1.9; }
 .lyric-verses p { margin: 0 0 1.25em; }
-.lyric-verses p:last-child { margin-bottom: 0; }
+.lyric-verses p:last-child { margin-bottom: 0; text-align: right; }
 .lyric-verses strong { display: block; font-weight: 700; }
 .lyric-return { display: inline-flex; justify-content: center; min-width: 100px; margin-top: 18px; padding: 12px 20px; border: 2px solid #000; border-radius: 0; background: #fff; color: #000; font: inherit; font-size: 14px; cursor: pointer; transition: color .2s ease, background .2s ease; }
 .lyric-return:hover { background: #000; color: #fff; }
@@ -156,7 +156,7 @@ main { min-height: 100vh; display: flex; flex-direction: column; }
   .profile-summary-section { padding-top: 44px; }
   .profile-content-layout { grid-template-columns: 96px minmax(0, 1fr); gap: 16px; }
   .profile-content-image { width: 96px; min-width: 96px; max-width: 96px; height: 96px !important; }
-  .profile-content-copy { font-size: 16.5px; line-height: 1.85; }
+  .profile-content-copy { font-size: 16.5px; line-height: 1.7; }
   .profile-actions { gap: 12px; }
   .profile-actions .social-links { gap: 6px; }
   .profile-actions .social-links a { width: 34px; height: 34px; }
