@@ -124,6 +124,10 @@ main { min-height: 100vh; display: flex; flex-direction: column; }
 .lyric-panel { margin-top: 34px; min-height: 240px; padding: 32px; border: 1px solid var(--ink); background: #f7f7f7; scroll-margin-top: 105px; }
 .lyric-panel h3 { margin: 0 0 18px; font-size: clamp(24px, 4vw, 36px); letter-spacing: -.04em; }
 .lyric-panel > p:last-child { color: #666; font-size: 15px; line-height: 1.8; }
+.lyric-verses { color: #111; font-size: 16px; font-weight: 700; line-height: 1.9; }
+.lyric-verses p { margin: 0 0 1.25em; }
+.lyric-verses p:last-child { margin-bottom: 0; }
+.lyric-verses strong { display: block; font-weight: 700; }
 .lyric-return { display: inline-flex; justify-content: center; min-width: 100px; margin-top: 18px; padding: 12px 20px; border: 2px solid #000; border-radius: 0; background: #fff; color: #000; font: inherit; font-size: 14px; cursor: pointer; transition: color .2s ease, background .2s ease; }
 .lyric-return:hover { background: #000; color: #fff; }
 

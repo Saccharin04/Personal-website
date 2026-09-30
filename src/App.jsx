@@ -16,7 +16,20 @@ const albums = [
 ]
 
 const lyrics = [
-  { id: "lyric-01", title: "临前日" },
+  {
+    id: "lyric-01",
+    title: "临前日",
+    verses: [
+      ["熟悉的声音停下", "悬挂扶手们摇晃着", "夕阳 和失落的双眼", "想到了什么 无论是什么"],
+      ["围巾遮住半张脸", "冒着热蒸气的窗口", "排风扇 和中断的故事", "去记起什么 无论是什么"],
+      ["弥散的闪光的话语", "拼凑成两张纸", "颜料溶进水又混在一起", "一成不变的日常"],
+      ["继续等待下去也好", "不安的玛奇朵", "深深地吸一口气", "表现得无动于衷"],
+      ["感到疑惑的时候", "深深沉进水里", "第一次开花 十四个月后", "它的样子还会被记录吗"],
+      ["一闪而过又注定发生", "早已倾斜的云层啊", "陌生的低语正在远去", "而我只是站在原处"],
+      ["噤声的漂泊故事", "我的左手折下折痕", "错乱的身影们", "重叠在一起", "全部涂成白色的意识", "像是面对着此刻的到来", "如果我说出什么", "你会听见我吗"],
+      ["2024年12月"],
+    ],
+  },
   { id: "lyric-02", title: "两种药物冬眠" },
   { id: "lyric-03", title: "摄食像" },
 ]
@@ -173,6 +186,7 @@ function ProfilePage() {
         <p className="profile-page-kicker">PROFILE</p>
         <h1>Profile</h1>
         <ProfileContent />
+        <a className="back-link" href={siteBase}>← Back to main page</a>
       </section>
 
       <footer className="site-footer">
@@ -300,7 +314,17 @@ function ChannelAlbumPage() {
         <article className="lyric-panel" id="selected-lyrics" ref={lyricPanelRef} aria-live="polite">
           <p className="section-number">{String(selectedLyricIndex + 1).padStart(2, "0")} / LYRICS</p>
           <h3>{selectedLyric.title}</h3>
-          <p>歌词文本待补充。</p>
+          {selectedLyric.verses ? (
+            <div className="lyric-verses">
+              {selectedLyric.verses.map((verse, verseIndex) => (
+                <p key={verseIndex}>
+                  {verse.map((line) => <strong key={line}>{line}</strong>)}
+                </p>
+              ))}
+            </div>
+          ) : (
+            <p>歌词文本待补充。</p>
+          )}
         </article>
         <button className="lyric-return" type="button" onClick={returnToLyricButtons}>返回</button>
       </section>
