@@ -19,7 +19,7 @@ const albums = [
 const lyrics = [
   {
     id: "lyric-01",
-    title: "临前日",
+    title: "臨前日",
     verses: [
       ["熟悉的声音停下", "悬挂扶手们摇晃着", "夕阳 和失落的双眼", "想到了什么 无论是什么"],
       ["围巾遮住半张脸", "冒着热蒸气的窗口", "排风扇 和中断的故事", "去记起什么 无论是什么"],
@@ -33,7 +33,7 @@ const lyrics = [
   },
   {
     id: "lyric-02",
-    title: "两种药物冬眠",
+    title: "兩種藥物冬眠",
     translation: "薬で冬眠２つ",
     verses: [
       ["没有人的时候", "就陷入睡眠"],
@@ -44,8 +44,47 @@ const lyrics = [
       ["2024年12月"],
     ],
   },
-  { id: "lyric-03", title: "摄食像", translation: "Esophagus" },
+  { id: "lyric-03", title: "攝食像", translation: "Kritophaus" },
+  { id: "lyric-04", title: "空聲像", translation: "Kenomimes" },
+  { id: "lyric-05", title: "哀園", translation: "あいえん" },
+  { id: "lyric-06", title: "穢土", translation: "えど" },
+  { id: "lyric-07", title: "重症", translation: "Kranken" },
+  { id: "lyric-08", title: "夜迷想", translation: "夜の迷想" },
+  { id: "lyric-09", title: "浮船", translation: "浮き船" },
+  { id: "lyric-10", title: "流浪者", translation: "Wanderer" },
+  { id: "lyric-11", title: "直到膠帶貼滿紙箱", translation: "Resealings" },
+  { id: "lyric-12", title: "蛇", translation: "ヘビとの暮らし" },
+  { id: "lyric-13", title: "失注頁", translation: "Pages Unnoted" },
+  { id: "lyric-14", title: "康德的憂鬱", translation: "Kant's melancholy" },
+  { id: "lyric-15", title: "復覺二千重", translation: "復覚二千重" },
+  { id: "lyric-16", title: "近環與無盡長廊", translation: "近环と無尽回廊" },
+  { id: "lyric-17", title: "閉鎖", translation: "The Cross" },
+  { id: "lyric-18", title: "遺失紀事", translation: "Lost Script" },
+  { id: "lyric-19", title: "鏡裂", translation: "鏡の割り" },
+  { id: "lyric-20", title: "獸眼", translation: "獣の目に" },
+  { id: "lyric-21", title: "", translation: "", empty: true },
+  { id: "lyric-22", title: "", translation: "", empty: true },
+  { id: "lyric-23", title: "", translation: "", empty: true },
+  { id: "lyric-24", title: "直到變成化石", translation: "The Fossilized" },
+  { id: "lyric-25", title: "在月亮的背面", translation: "月の裏側" },
 ]
+
+const albumTracks = {
+  overdue: [
+    ["花", "Flowers"], ["匿名藝術家", "Hidden"], ["卸妝水", "Revealed"], ["過期食品", "Overdue"],
+    ["衰老大於飢餓", "Indulgent"], ["錯亂", "Obssesion"], ["節制", "Restriction"], ["安全出口", "The Exit"],
+    ["推倒神像", "Betrayal"], ["浴缸裡的革命", "Bathtub Revolution"], ["大女主角", "Egoism"], ["左撇子", "Crime Congenital"],
+    ["戒斷反應", "Withdrawal"], ["尖銳飾品", "Evil Justice"], ["明天見", "Casual Us"], ["玫瑰主義者", "Rosist"],
+    ["枯竭", "Exhaustion"], ["慎重", "Sound out"], ["第三天", "Loop"], ["褪色", "Innocent Me"],
+  ],
+  "the-third-sacrifice": [
+    ["鏽斑", "Old Bronze"], ["姑息", "Half Measure"], ["前科", "Prisoner of History"], ["切跡", "The Third Sacrifice"],
+    ["償取", "Kaji no tori"], ["束執", "Smasher"], ["罔蔑", "Missing Point"], ["常相", "Consistency"],
+    ["斷絞", "Integrity"], ["覆蓋", "Reloader"], ["舊傷", "Furui Kizuato"], ["妒心", "Selectivity"],
+    ["吻合", "Kuchibi Awase"], ["哀怨", "Untended"], ["陷身", "All in Game"], ["棄置", "This is for you"],
+    ["誘使", "Trigger"], ["狡黠", "Modification"], ["脫罪", "Justification"], ["垂懸", "Suspension"],
+  ],
+}
 
 const argumentsVideos = [
   { title: "概念、判斷，作為認知的基本結構", date: "2025年10月24日", href: "https://www.bilibili.com/video/BV1GTsWzAE54/" },
@@ -202,10 +241,14 @@ function StandaloneAlbumPage({ album }) {
 
       <section className="content lyrics-section">
         <h2>Lyrics</h2>
-        <article className="lyric-panel album-lyrics-empty">
-          <p className="section-number">{album.number} / LYRICS</p>
-          <p>该专辑的歌曲目录与歌词内容待补充。</p>
-        </article>
+        {albumTracks[album.slug] ? (
+          <LyricsReader tracks={albumTracks[album.slug].map(([title, translation], index) => ({ id: `${album.slug}-${index + 1}`, title, translation }))} />
+        ) : (
+          <article className="lyric-panel album-lyrics-empty">
+            <p className="section-number">{album.number} / </p>
+            <p>該專輯的歌曲目錄與歌詞內容待補充。</p>
+          </article>
+        )}
       </section>
 
       <footer className="site-footer">
@@ -341,10 +384,10 @@ function SocialLinks({ compact = false }) {
   )
 }
 
-function ChannelAlbumPage() {
-  const [selectedLyricId, setSelectedLyricId] = useState(lyrics[0].id)
-  const selectedLyric = lyrics.find((lyric) => lyric.id === selectedLyricId) ?? lyrics[0]
-  const selectedLyricIndex = lyrics.findIndex((lyric) => lyric.id === selectedLyric.id)
+function LyricsReader({ tracks, showComingSoon = false }) {
+  const [selectedLyricId, setSelectedLyricId] = useState(tracks[0].id)
+  const selectedLyric = tracks.find((lyric) => lyric.id === selectedLyricId) ?? tracks[0]
+  const selectedLyricIndex = tracks.findIndex((lyric) => lyric.id === selectedLyric.id)
   const lyricButtonsRef = useRef(null)
   const lyricPanelRef = useRef(null)
 
@@ -359,6 +402,48 @@ function ChannelAlbumPage() {
     lyricButtonsRef.current?.scrollIntoView({ behavior: "smooth", block: "center" })
   }
 
+  return (
+    <>
+      <div className="lyric-buttons" aria-label="Lyrics list" ref={lyricButtonsRef}>
+        {tracks.map((lyric, index) => (
+          <button
+            className={`lyric-button${selectedLyric.id === lyric.id ? " is-selected" : ""}`}
+            type="button"
+            key={lyric.id}
+            disabled={lyric.empty}
+            onClick={() => selectLyric(lyric)}
+          >
+            <span>{String(index + 1).padStart(2, "0")}</span>
+            <strong>{lyric.title}</strong>
+          </button>
+        ))}
+        {showComingSoon && (
+          <button className="lyric-button is-coming-soon" type="button" disabled>
+            <strong>待續…</strong>
+          </button>
+        )}
+      </div>
+      <article className="lyric-panel" id="selected-lyrics" ref={lyricPanelRef} aria-live="polite">
+        <p className="section-number">{String(selectedLyricIndex + 1).padStart(2, "0")} / {selectedLyric.translation ?? ""}</p>
+        <h3>{selectedLyric.title}</h3>
+        {selectedLyric.verses ? (
+          <div className="lyric-verses">
+            {selectedLyric.verses.map((verse, verseIndex) => (
+              <p key={verseIndex}>
+                {verse.map((line) => <strong key={line}>{line}</strong>)}
+              </p>
+            ))}
+          </div>
+        ) : (
+          <p>歌詞文本待補充。</p>
+        )}
+      </article>
+      <button className="lyric-return" type="button" onClick={returnToLyricButtons}>返回</button>
+    </>
+  )
+}
+
+function ChannelAlbumPage() {
   return (
     <main>
       <nav className="navbar" aria-label="Main navigation">
@@ -380,38 +465,7 @@ function ChannelAlbumPage() {
 
       <section className="content lyrics-section">
         <h2>Lyrics</h2>
-        <div className="lyric-buttons" aria-label="Lyrics list" ref={lyricButtonsRef}>
-          {lyrics.map((lyric, index) => (
-            <button
-              className={`lyric-button${selectedLyric.id === lyric.id ? " is-selected" : ""}`}
-              type="button"
-              key={lyric.id}
-              onClick={() => selectLyric(lyric)}
-            >
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <strong>{lyric.title}</strong>
-            </button>
-          ))}
-          <button className="lyric-button is-coming-soon" type="button" disabled>
-            <strong>待续…</strong>
-          </button>
-        </div>
-        <article className="lyric-panel" id="selected-lyrics" ref={lyricPanelRef} aria-live="polite">
-          <p className="section-number">{String(selectedLyricIndex + 1).padStart(2, "0")} / {selectedLyric.translation ?? ""}</p>
-          <h3>{selectedLyric.title}</h3>
-          {selectedLyric.verses ? (
-            <div className="lyric-verses">
-              {selectedLyric.verses.map((verse, verseIndex) => (
-                <p key={verseIndex}>
-                  {verse.map((line) => <strong key={line}>{line}</strong>)}
-                </p>
-              ))}
-            </div>
-          ) : (
-            <p>歌词文本待补充。</p>
-          )}
-        </article>
-        <button className="lyric-return" type="button" onClick={returnToLyricButtons}>返回</button>
+        <LyricsReader tracks={lyrics} showComingSoon />
       </section>
 
       <footer className="site-footer">
