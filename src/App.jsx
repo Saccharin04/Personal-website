@@ -34,6 +34,7 @@ const lyrics = [
   {
     id: "lyric-02",
     title: "两种药物冬眠",
+    translation: "薬で冬眠２つ",
     verses: [
       ["没有人的时候", "就陷入睡眠"],
       ["夜空和插进夜空的高楼", "一圈一圈地旋转着", "什么时候陷入的无助情感", "现在已经发不出声音"],
@@ -43,7 +44,7 @@ const lyrics = [
       ["2024年12月"],
     ],
   },
-  { id: "lyric-03", title: "摄食像" },
+  { id: "lyric-03", title: "摄食像", translation: "Esophagus" },
 ]
 
 const argumentsVideos = [
@@ -398,7 +399,7 @@ function ChannelAlbumPage() {
           </button>
         </div>
         <article className="lyric-panel" id="selected-lyrics" ref={lyricPanelRef} aria-live="polite">
-          <p className="section-number">{String(selectedLyricIndex + 1).padStart(2, "0")} / LYRICS</p>
+          <p className="section-number">{String(selectedLyricIndex + 1).padStart(2, "0")} / {selectedLyric.translation ?? ""}</p>
           <h3>{selectedLyric.title}</h3>
           {selectedLyric.verses ? (
             <div className="lyric-verses">
