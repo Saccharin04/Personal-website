@@ -17,6 +17,7 @@ const albums = [
 const lyrics = [
   { id: "lyric-01", title: "临前日" },
   { id: "lyric-02", title: "两种药物冬眠" },
+  { id: "lyric-03", title: "摄食像" },
 ]
 
 function App() {
@@ -221,7 +222,7 @@ function ChannelAlbumPage() {
 
       <section className="album-hero">
         <p className="section-number">04 / ALBUM</p>
-        <h1>午前四时电台</h1>
+        <h1>午前四時電台</h1>
         <p className="album-page-title">Channel 4:00am</p>
         <p className="section-intro">2024–2026年</p>
         <a className="back-link" href={`${siteBase}#music`}>← Back to Music</a>
