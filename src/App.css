@@ -62,7 +62,7 @@ main { min-height: 100vh; display: flex; flex-direction: column; }
 }
 .profile-summary-section { border-top: 0; padding-top: 62px; }
 .section-number { color: #666; font-size: 11px; font-weight: 700; letter-spacing: .23em; margin-bottom: 18px; }
-.content h2 { font-size: clamp(48px, 8vw, 92px); letter-spacing: -.065em; line-height: .95; margin: 0 0 30px; font-weight: 800; }
+.content h2 { font-size: clamp(40px, 6vw, 72px); letter-spacing: -.065em; line-height: .95; margin: 0 0 30px; font-weight: 800; }
 .section-intro { max-width: 750px; color: #494949; font-size: clamp(17px, 2vw, 21px); line-height: 1.7; margin: 0; }
 .profile-content-layout { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: clamp(24px, 4vw, 48px); align-items: start; }
 .profile-content-image { display: block; width: auto; max-width: 320px; aspect-ratio: 1 / 1; object-fit: cover; object-position: center; }
