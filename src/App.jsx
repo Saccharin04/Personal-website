@@ -147,8 +147,9 @@ function App() {
       <section id="arguments" className="content arguments-section">
         <h2>Arguments</h2>
         <div className="track-list">
-          {argumentsVideos.map((video) => (
+          {argumentsVideos.map((video, index) => (
             <a className="track-card" key={video.href} href={video.href} target="_blank" rel="noreferrer">
+              <span className="track-number">{String(index + 1).padStart(2, "0")}</span>
               <div className="track-info">
                 <h3>{video.title}</h3>
                 <p>{video.date}</p>
