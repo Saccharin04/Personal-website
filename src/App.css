@@ -65,14 +65,14 @@ main { min-height: 100vh; display: flex; flex-direction: column; }
 h1::before, h2::before {
   content: "";
   display: inline-block;
-  width: .52em;
+  width: .50em;
   height: .72em;
   margin-right: .2em;
   background-image:
     linear-gradient(currentColor, currentColor),
     linear-gradient(currentColor, currentColor);
   background-position: left center, right center;
-  background-size: .04em 100%, .42em 100%;
+  background-size: .06em 100%, .38em 100%;
   background-repeat: no-repeat;
   vertical-align: .04em;
   transform: scaleY(1.35);
