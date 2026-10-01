@@ -63,12 +63,17 @@ main { min-height: 100vh; display: flex; flex-direction: column; }
 .profile-summary-section { border-top: 0; padding-top: 62px; }
 .section-number { color: #666; font-size: 11px; font-weight: 700; letter-spacing: .23em; margin-bottom: 18px; }
 h1::before, h2::before {
-  content: "▋";
+  content: "";
   display: inline-block;
+  width: .52em;
+  height: .72em;
   margin-right: .2em;
-  font-size: .72em;
-  font-weight: 800;
-  letter-spacing: 0;
+  background-image:
+    linear-gradient(currentColor, currentColor),
+    linear-gradient(currentColor, currentColor);
+  background-position: left center, right center;
+  background-size: .04em 100%, .42em 100%;
+  background-repeat: no-repeat;
   vertical-align: .04em;
   transform: scaleY(1.35);
 }
