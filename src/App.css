@@ -70,6 +70,7 @@ h1::before, h2::before {
   font-weight: 800;
   letter-spacing: 0;
   vertical-align: .04em;
+  transform: scaleY(1.35);
 }
 .content h2 { font-size: clamp(40px, 6vw, 72px); letter-spacing: -.065em; line-height: .95; margin: 0 0 30px; font-weight: 800; }
 .section-intro { max-width: 750px; color: #494949; font-size: clamp(17px, 2vw, 21px); line-height: 1.7; margin: 0; }
