@@ -9,6 +9,23 @@ const channelPath = `${siteBase}channel-4am/`
 const profilePath = `${siteBase}profile/`
 const albumBase = `${siteBase}albums/`
 
+function SiteNav() {
+  return (
+    <nav className="navbar" aria-label="Main navigation">
+      <a href={`${siteBase}#top`} className="logo">Saccharin</a>
+      <div className="nav-links">
+        <a href={`${siteBase}#top`}>Latest Work</a>
+        <a href={`${siteBase}#profile`}>Profile</a>
+        <a href={`${siteBase}#music`}>Music</a>
+        <a href={`${siteBase}#lyrics`}>Lyric Albums</a>
+        <a href={`${siteBase}#arguments`}>Arguments</a>
+        <a href={`${siteBase}#gallery`}>Gallery</a>
+        <a href={`${siteBase}#teasers`}>Teasers</a>
+      </div>
+    </nav>
+  )
+}
+
 const albums = [
   { number: "01", title: "逃離夜晚", englishTitle: "Endless Night", years: "2020–2023年", slug: "endless-night", href: `${albumBase}endless-night/` },
   { number: "02", title: "過期食品", englishTitle: "Overdue", years: "2023-2024年", slug: "overdue", href: `${albumBase}overdue/` },
@@ -118,18 +135,7 @@ function App() {
           </feComponentTransfer>
         </filter>
       </svg>
-      <nav className="navbar" aria-label="Main navigation">
-        <a href="#top" className="logo">Saccharin</a>
-        <div className="nav-links">
-          <a href="#top">Latest Work</a>
-          <a href="#profile">Profile</a>
-          <a href="#music">Music</a>
-          <a href="#lyrics">Lyric Albums</a>
-          <a href="#arguments">Arguments</a>
-          <a href="#gallery">Gallery</a>
-          <a href="#teasers">Teasers</a>
-        </div>
-      </nav>
+      <SiteNav />
 
       <section id="top" className="hero">
         <p className="subtitle">LATEST WORK / 最新作品</p>
@@ -226,14 +232,7 @@ function App() {
 function StandaloneAlbumPage({ album }) {
   return (
     <main>
-      <nav className="navbar" aria-label="Main navigation">
-        <a href={siteBase} className="logo">Saccharin</a>
-        <div className="nav-links">
-          <a href={`${siteBase}#profile`}>Profile</a>
-          <a href={`${siteBase}#music`}>Music</a>
-          <a href={`${siteBase}#lyrics`}>Lyric Albums</a>
-        </div>
-      </nav>
+      <SiteNav />
 
       <section className="album-hero">
         <p className="section-number">ALBUM {album.number}</p>
@@ -306,14 +305,7 @@ function GalleryCarousel() {
 function ProfilePage() {
   return (
     <main>
-      <nav className="navbar" aria-label="Main navigation">
-        <a href={siteBase} className="logo">Saccharin</a>
-        <div className="nav-links">
-          <a href={`${siteBase}#profile`}>Profile</a>
-          <a href={`${siteBase}#music`}>Music</a>
-          <a href={`${siteBase}#lyrics`}>Lyric Albums</a>
-        </div>
-      </nav>
+      <SiteNav />
 
       <section className="profile-page content">
         <h1>Profile</h1>
@@ -449,14 +441,7 @@ function LyricsReader({ tracks, showComingSoon = false }) {
 function ChannelAlbumPage() {
   return (
     <main>
-      <nav className="navbar" aria-label="Main navigation">
-        <a href={`${siteBase}#top`} className="logo">Saccharin</a>
-        <div className="nav-links">
-          <a href={`${siteBase}#profile`}>Profile</a>
-          <a href={`${siteBase}#music`}>Music</a>
-          <a href={`${siteBase}#lyrics`}>Lyric Albums</a>
-        </div>
-      </nav>
+      <SiteNav />
 
       <section className="album-hero">
         <p className="section-number">ALBUM 04</p>
