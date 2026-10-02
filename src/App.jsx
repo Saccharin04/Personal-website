@@ -62,7 +62,17 @@ const lyrics = [
     ],
   },
   { id: "lyric-03", title: "攝食像", translation: "Kritophaus" },
-  { id: "lyric-04", title: "空聲像", translation: "Kenomimes" },
+  {
+    id: "lyric-04",
+    title: "空聲像",
+    translation: "kenomimes",
+    verses: [
+      ["如同编制一本历史", "讲述一段故事", "默默地收集着", "就学会了你的用词", "不安定、哀怨、悔恨", "充当相当容器的", "从那观念中无法见到", "从那言说中无法纾解"],
+      ["如同表演一种沉重", "流出一句附和", "冷冷地抽离着", "就吃掉了自己的内心", "不洞察、轻断、堕落", "充当相当原因的", "从那官能中无法覆及", "从那受动中无法否定"],
+      ["理解与身体共用边界", "无尽地执行你的回响"],
+      ["2025年6月"],
+    ],
+  },
   { id: "lyric-05", title: "哀園", translation: "あいえん" },
   { id: "lyric-06", title: "穢土", translation: "えど" },
   { id: "lyric-07", title: "重症", translation: "Kranken" },
@@ -99,7 +109,15 @@ const albumTracks = {
     ["償取", "Kaji no tori"], ["束執", "Smasher"], ["罔蔑", "Missing Point"], ["常相", "Consistency"],
     ["斷絞", "Integrity"], ["覆蓋", "Reloader"], ["舊傷", "Furui Kizuato"], ["妒心", "Selectivity"],
     ["吻合", "Kuchibi Awase"], ["哀怨", "Untended"], ["陷身", "All in Game"], ["棄置", "This is for you"],
-    ["誘使", "Trigger"], ["狡黠", "Modification"], ["脫罪", "Justification"], ["垂懸", "Suspension"],
+    ["誘使", "Trigger"], ["狡黠", "Modification", [
+      ["那无辜的面目", "期待着一种遗忘", "可怜地", "脆弱的墙壁前", "又正在张合不息"],
+      ["如同先天自尊便活跃", "恰当地停止整理", "不安地", "只要度过此刻", "也不再去考虑永远"],
+      ["完整的灵魂必须完整", "在这不到三页的史书上", "皮肉连着骨骸一同", "搬进玻璃展柜里", "厚重到令人生笑", "却失去了表情的自由", "如果还有什么要说", "请务必保密到底"],
+      ["被命运刻上印迹的灰质层", "颤抖着", "说出所有哀伤与孤独", "低下头盯着地面", "会有谁来原谅"],
+      ["不可以问起的善因恶果", "求求你", "如果在断裂的地方", "看见红色的线", "沉默就随之降临"],
+      ["违背的定言伸出触手", "不知何时超过了常识", "囚于两难装聋作哑", "大可以假装昏迷", "那若隐若现的桥头", "称作简直正确的引渡", "即使再一次也无法测量", "过去早已不再是过去"],
+      ["2024年11月", "收录于 椎上切迹"],
+    ]], ["脫罪", "Justification"], ["垂懸", "Suspension"],
   ],
 }
 
@@ -245,7 +263,7 @@ function StandaloneAlbumPage({ album }) {
       <section className="content lyrics-section">
         <h2>Lyrics</h2>
         {albumTracks[album.slug] ? (
-          <LyricsReader tracks={albumTracks[album.slug].map(([title, translation], index) => ({ id: `${album.slug}-${index + 1}`, title, translation }))} />
+          <LyricsReader tracks={albumTracks[album.slug].map(([title, translation, verses], index) => ({ id: `${album.slug}-${index + 1}`, title, translation, verses }))} />
         ) : (
           <article className="lyric-panel album-lyrics-empty">
             <p className="section-number">{album.number} / </p>
